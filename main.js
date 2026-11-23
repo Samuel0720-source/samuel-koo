@@ -176,6 +176,47 @@ addEventListener('scroll', () => { if (!spyQueued) { spyQueued = true; requestAn
 addEventListener('resize', spy);
 spy();
 
+// Field switcher: every list marked data-sort puts the chosen field's items first (first-listed topic
+// first), keeping page order otherwise. The page's own order is the biomedical one, so no-JS readers get that.
+const LENSES = { bio: 'biomedical', sw: 'software', mech: 'mechanical' };
+const lensBar = document.querySelector('[data-lens-bar]');
+if (lensBar) {
+  const lensStatus = lensBar.querySelector('[data-lens-status]');
+  const lists = [...document.querySelectorAll('[data-sort]')].map((ul) => [ul, [...ul.children]]);
+  const rank = (el, lens) => { const i = (el.dataset.topics || '').split(' ').indexOf(lens); return i < 0 ? 99 : i; };
+  const setLens = (lens, announce) => {
+    document.documentElement.dataset.lens = lens;
+    lensBar.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.value === lens)));
+    document.querySelectorAll('.lead[data-for]').forEach((p) => { p.hidden = p.dataset.for !== lens; });
+    for (const [ul, items] of lists) {
+      ul.append(...items.map((el, i) => [el, rank(el, lens), i]).sort((a, b) => a[1] - b[1] || a[2] - b[2]).map(([el]) => el));
+    }
+    if (announce) lensStatus.textContent = `Showing ${LENSES[lens]} work first.`;
+  };
+  lensBar.addEventListener('click', (e) => {
+    const b = e.target.closest('button[value]');
+    if (!b || !Object.hasOwn(LENSES, b.value)) return;
+    setLens(b.value, true);
+    const url = new URL(location.href);
+    if (b.value === 'bio') url.searchParams.delete('focus'); else url.searchParams.set('focus', b.value);
+    history.replaceState(null, '', url); // shareable: ?focus=sw or ?focus=mech
+  });
+  const asked = new URLSearchParams(location.search).get('focus');
+  setLens(Object.hasOwn(LENSES, asked ?? "") ? asked : 'bio', false);
+  lensBar.hidden = false;
+}
+
+// NEPHRON loop: a still without JS or with reduced motion; otherwise it plays, with a pause button (WCAG 2.2.2).
+const loop = document.querySelector('img[data-anim]');
+if (loop) {
+  const still = loop.getAttribute('src');
+  const btn = loop.parentElement.querySelector('.loop-toggle');
+  const play = (on) => { loop.src = on ? loop.dataset.anim : still; btn.textContent = on ? 'Pause the loop' : 'Play the loop'; };
+  btn.addEventListener('click', () => play(loop.getAttribute('src') === still));
+  play(!matchMedia('(prefers-reduced-motion: reduce)').matches);
+  btn.hidden = false;
+}
+
 // One reveal for the project rows.
 const reveal = new IntersectionObserver((entries) => {
   for (const en of entries) if (en.isIntersecting) { en.target.classList.add('is-in'); reveal.unobserve(en.target); }
