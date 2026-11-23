@@ -185,6 +185,7 @@
 .link-grid a { display: flex; flex-direction: column; gap: var(--space-xs); padding: var(--space-lg); min-height: 120px; justify-content: flex-end; border-radius: var(--radius-card); background: color-mix(in oklab, var(--tone) 22%, var(--color-paper)); color: var(--color-ink); text-decoration: none; transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out); }
 .link-grid a:hover { background: var(--tone); transform: translateY(-3px); }
 .link-grid a:active { transform: translateY(0); }
+.link-grid li:last-child:nth-child(odd) { grid-column: 1 / -1; } /* 7 cards: the last one fills its row in the 3- and 2-column layouts */
 .link-name { font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); }
 .link-url { font-size: var(--text-sm); color: var(--color-ink-2); overflow-wrap: anywhere; }
 
