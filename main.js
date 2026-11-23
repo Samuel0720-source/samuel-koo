@@ -232,12 +232,14 @@ if (repoList) {
     .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
     .then((repos) => {
       if (!Array.isArray(repos)) throw new Error('unexpected GitHub response');
-      const shown = repos.filter((r) => r && typeof r.name === 'string' && !r.fork && r.name !== OWNER).slice(0, 8);
+      const HIDDEN = new Set([OWNER, 'Spine-ai']); // Spine-ai stays in "Also on the route"; the team self-restore repo takes its card
+      const shown = repos.filter((r) => r && typeof r.name === 'string' && !r.fork && !HIDDEN.has(r.name)).slice(0, 7);
       if (!shown.length) return;
       // First clause only, at most 12 words, so the cards stay scannable.
       const short = (d) => (typeof d === 'string' && d ? d.split(/[.(:;]/)[0].trim().split(/\s+/).slice(0, 12).join(' ') : 'No description yet');
       const fmt = new Intl.DateTimeFormat('en-CA', { month: 'short', day: 'numeric', year: 'numeric' });
-      repoList.replaceChildren(...shown.map((r, i) => {
+      const pinned = repoList.querySelector('[data-pinned]'); // a team repo the live list can't see; kept second
+      const cards = shown.map((r, i) => {
         const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; };
         const li = el('li', `repo tone-${(i % 5) + 1}`);
         const a = el('a');
@@ -248,7 +250,9 @@ if (repoList) {
         if (!Number.isNaN(pushed.getTime())) a.append(el('span', 'repo-meta', `Updated ${fmt.format(pushed)}`));
         li.append(a);
         return li;
-      }));
+      });
+      if (pinned) cards.splice(1, 0, pinned);
+      repoList.replaceChildren(...cards);
     })
     .catch((err) => console.warn('GitHub refresh failed; showing the saved repo cards.', err));
 }
