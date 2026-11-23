@@ -1,4 +1,4 @@
-// Route map: drive a marker around the track; each gate is a checkpoint link.
+// Race track: drive the car around the loop; each gate is a checkpoint link.
 const SVG_NS = 'http://www.w3.org/2000/svg';
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const GATES = [
@@ -6,7 +6,7 @@ const GATES = [
   { at: 0.3, num: '02', name: 'Awards', href: '#awards' },
   { at: 0.5, num: '03', name: 'Experience', href: '#experience' },
   { at: 0.7, num: '04', name: 'Toolkit', href: '#toolkit' },
-  { at: 0.9, num: '05', name: 'Links', href: '#links' },
+  { at: 0.9, num: '05', name: 'GitHub', href: '#links' },
 ];
 
 const svg = document.querySelector('.route-svg');
@@ -32,7 +32,7 @@ if (svg && track && marker) {
     if ((p.x - centre.x) * nx + (p.y - centre.y) * ny < 0) { nx = -nx; ny = -ny; } // point outward
     const link = document.createElementNS(SVG_NS, 'a');
     link.setAttribute('href', g.href);
-    link.setAttribute('class', 'gate');
+    link.setAttribute('class', `gate tone-${Number(g.num)}`);
     link.setAttribute('aria-label', `Checkpoint ${g.num}, ${g.name}`);
     const bar = document.createElementNS(SVG_NS, 'line');
     bar.setAttribute('x1', p.x - nx * 20); bar.setAttribute('y1', p.y - ny * 20);
@@ -54,13 +54,32 @@ if (svg && track && marker) {
     return link;
   });
 
+  // Chequered start line across the road at s = 0.
+  {
+    const p = at(0), a = angleAt(0), tx = Math.cos(a), ty = Math.sin(a), nx = -ty, ny = tx, sq = 6.4;
+    const g = document.getElementById('startline');
+    for (let row = 0; row < 2; row++) for (let col = 0; col < 6; col++) {
+      const r = document.createElementNS(SVG_NS, 'rect');
+      const u = (col - 3) * sq, v = (row - 1) * sq;
+      r.setAttribute('x', 0); r.setAttribute('y', 0); r.setAttribute('width', sq); r.setAttribute('height', sq);
+      r.setAttribute('transform', `translate(${p.x + nx * u + tx * v} ${p.y + ny * u + ty * v}) rotate(${(a * 180) / Math.PI})`);
+      r.setAttribute('class', (row + col) % 2 ? 'start-sq-light' : 'start-sq-dark');
+      g.append(r);
+    }
+  }
+
+  const trailEl = document.getElementById('trail');
+  const hud = Object.fromEntries([...document.querySelectorAll('[data-hud]')].map((el) => [el.dataset.hud, el]));
+  let trail = [], lap = 0, lapStart = null, best = null;
+  const drawTrail = () => trailEl.setAttribute('d', trail.length > 1 ? 'M' + trail.map((q) => `${q.x.toFixed(1)} ${q.y.toFixed(1)}`).join(' L') : '');
+
   let s = 0, vel = 0, target = null, dragging = false, active = -1, engaged = false;
   const keys = new Set();
 
   const place = () => {
     const p = at(s);
     const deg = (angleAt(s) * 180) / Math.PI + (vel < 0 ? 180 : 0);
-    marker.setAttribute('transform', `translate(${p.x} ${p.y}) rotate(${deg})`);
+    marker.setAttribute('transform', `translate(${p.x} ${p.y}) rotate(${deg}) scale(1.3)`);
     const near = GATES.findIndex((g) => loopDist(s, g.at) < 0.025);
     if (near !== active) {
       active = near;
@@ -78,9 +97,18 @@ if (svg && track && marker) {
               - (keys.has('ArrowLeft') || keys.has('ArrowDown') || keys.has('a') || keys.has('s') ? 1 : 0);
     if (dir) { vel += dir * 0.00035; target = null; }
     if (target !== null) { const d = wrap(target - s + 0.5) - 0.5; vel = d * 0.08; if (Math.abs(d) < 0.0005) target = null; }
-    vel = Math.max(-0.009, Math.min(0.009, vel)) * (dir ? 0.98 : 0.92);
+    vel = Math.max(-0.006, Math.min(0.006, vel)) * (dir ? 0.98 : 0.92);
     if (Math.abs(vel) < 0.00002) vel = 0;
+    const prev = s;
     s = wrap(s + vel);
+    const clock = performance.now(); // wall-clock lap time, parked time included
+    if (vel > 0 && prev > 0.8 && s < 0.2) { // crossed the start line forwards
+      if (lapStart !== null) {
+        const t = clock - lapStart; best = best === null ? t : Math.min(best, t);
+        status.textContent = `Lap ${lap} done in ${(t / 1000).toFixed(2)} s. Best lap ${(best / 1000).toFixed(2)} s.`;
+      }
+      lap += 1; lapStart = clock;
+    } else if (vel < 0 && prev < 0.2 && s > 0.8) lapStart = null; // backwards over the line voids the lap
     return Boolean(vel || dir || target !== null);
   };
   const tick = (now) => {
@@ -88,6 +116,10 @@ if (svg && track && marker) {
     let moving = true;
     while (acc >= 1000 / 60) { moving = step(); acc -= 1000 / 60; }
     place();
+    if (!reduced) { const p = at(s); trail.push({ x: p.x, y: p.y }); if (trail.length > 16 || !moving) trail.shift(); if (!moving) trail = []; drawTrail(); }
+    hud.lap.textContent = lap;
+    hud.best.textContent = best === null ? 'none yet' : `${(best / 1000).toFixed(2)} s`;
+    hud.speed.textContent = `${Math.round(Math.abs(vel) * L * 60 * 0.36)} km/h`;
     if (moving) requestAnimationFrame(tick); else { running = false; last = 0; acc = 0; }
   };
   let running = false;
@@ -125,7 +157,7 @@ if (svg && track && marker) {
 
   // Start just behind the line and roll up to the first checkpoint.
   s = 0.97; place();
-  if (reduced) { s = GATES[0].at; place(); } else { setTimeout(() => { target = GATES[0].at; run(); }, 500); }
+  if (reduced) { s = GATES[0].at; place(); } else { setTimeout(() => { if (!engaged) { target = GATES[0].at; run(); } }, 500); }
 }
 
 // Nav: light up the checkpoint you are passing (the last section whose top is above 40% of the screen).
@@ -150,3 +182,32 @@ const reveal = new IntersectionObserver((entries) => {
 }, { rootMargin: '0px 0px -10% 0px' });
 document.documentElement.classList.add('js'); // hide-until-revealed only once the observer exists
 document.querySelectorAll('.work').forEach((el) => reveal.observe(el));
+
+// GitHub: refresh the repo cards with live data; the static cards stay if the request fails.
+const repoList = document.querySelector('[data-repos]');
+if (repoList) {
+  const OWNER = 'Samuel0720-source';
+  fetch(`https://api.github.com/users/${OWNER}/repos?per_page=100&sort=pushed`)
+    .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+    .then((repos) => {
+      if (!Array.isArray(repos)) throw new Error('unexpected GitHub response');
+      const shown = repos.filter((r) => r && typeof r.name === 'string' && !r.fork && r.name !== OWNER).slice(0, 8);
+      if (!shown.length) return;
+      // First clause only, at most 12 words, so the cards stay scannable.
+      const short = (d) => (typeof d === 'string' && d ? d.split(/[.(:;]/)[0].trim().split(/\s+/).slice(0, 12).join(' ') : 'No description yet');
+      const fmt = new Intl.DateTimeFormat('en-CA', { month: 'short', day: 'numeric', year: 'numeric' });
+      repoList.replaceChildren(...shown.map((r, i) => {
+        const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; };
+        const li = el('li', `repo tone-${(i % 5) + 1}`);
+        const a = el('a');
+        a.href = String(r.html_url).startsWith('https://github.com/') ? r.html_url : `https://github.com/${OWNER}`;
+        a.append(el('span', 'repo-name', r.name), el('span', 'repo-desc', short(r.description)));
+        if (typeof r.language === 'string') a.append(el('span', 'chip', r.language));
+        const pushed = new Date(r.pushed_at);
+        if (!Number.isNaN(pushed.getTime())) a.append(el('span', 'repo-meta', `Updated ${fmt.format(pushed)}`));
+        li.append(a);
+        return li;
+      }));
+    })
+    .catch((err) => console.warn('GitHub refresh failed; showing the saved repo cards.', err));
+}

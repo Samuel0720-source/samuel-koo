@@ -11,7 +11,7 @@
   --color-paper: oklch(95.5% 0.006 250); --color-paper-2: oklch(91.5% 0.009 250); --color-paper-3: oklch(86% 0.012 250);
   --color-ink: oklch(21% 0.02 262); --color-ink-2: oklch(33% 0.02 262); --color-muted: oklch(47% 0.015 262);
   --color-rule: oklch(82% 0.01 250); --color-on-ink: oklch(95.5% 0.006 250); --color-on-ink-muted: oklch(76% 0.012 250);
-  --color-accent: oklch(67% 0.2 42); --color-accent-ink: oklch(21% 0.02 262); --color-focus: oklch(50% 0.2 42);
+  --color-accent: oklch(67% 0.2 42); --color-c1: oklch(68% 0.2 42); --color-c2: oklch(83% 0.16 88); --color-c3: oklch(72% 0.17 155); --color-c4: oklch(68% 0.16 245); --color-c5: oklch(72% 0.18 355); --color-field: oklch(90% 0.05 150); --color-road: oklch(30% 0.015 262); --color-accent-ink: oklch(21% 0.02 262); --color-focus: oklch(50% 0.2 42);
   --font-display: "Unbounded", ui-sans-serif, system-ui, sans-serif; --font-body: "Geist", ui-sans-serif, system-ui, sans-serif; --font-outlier: var(--font-body);
   --radius-card: 14px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
   --tracking-display: -0.02em;

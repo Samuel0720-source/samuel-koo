@@ -17,23 +17,27 @@
 <body>
   <a class="skip" href="#projects">Skip to projects</a>
 
+  <svg width="0" height="0" class="visually-hidden" aria-hidden="true">
+    <symbol id="gh-mark" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.540 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.010.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.020.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
+  </svg>
+
   <header class="nav">
     <div class="container nav-inner">
       <a class="wordmark" href="#top">Samuel Koo</a>
       <nav aria-label="Checkpoints">
         <ol class="nav-list">
-          <li><a href="#projects"><span class="nav-num">01</span><span class="nav-label">Projects</span></a></li>
-          <li><a href="#awards"><span class="nav-num">02</span><span class="nav-label">Awards</span></a></li>
-          <li><a href="#experience"><span class="nav-num">03</span><span class="nav-label">Experience</span></a></li>
-          <li><a href="#toolkit"><span class="nav-num">04</span><span class="nav-label">Toolkit</span></a></li>
-          <li><a href="#links"><span class="nav-num">05</span><span class="nav-label">Links</span></a></li>
+          <li class="tone-1"><a href="#projects"><span class="nav-num">01</span><span class="nav-label">Projects</span></a></li>
+          <li class="tone-2"><a href="#awards"><span class="nav-num">02</span><span class="nav-label">Awards</span></a></li>
+          <li class="tone-3"><a href="#experience"><span class="nav-num">03</span><span class="nav-label">Experience</span></a></li>
+          <li class="tone-4"><a href="#toolkit"><span class="nav-num">04</span><span class="nav-label">Toolkit</span></a></li>
+          <li class="tone-5"><a href="#links"><span class="nav-num">05</span><span class="nav-label">GitHub</span></a></li>
         </ol>
       </nav>
     </div>
   </header>
 
   <main id="top">
-    <section id="start" class="hero container" aria-labelledby="hero-title">
+    <section class="hero container" aria-labelledby="hero-title">
       <div class="hero-copy">
         <h1 id="hero-title">I build instruments, then I&nbsp;test&nbsp;them.</h1>
         <p class="lead">Samuel Koo, Biomedical Engineering at Waterloo. WEC 2026 Bioengineering winner.</p>
@@ -41,29 +45,57 @@
           <a class="btn btn-primary" href="#projects">See the projects</a>
           <a class="btn btn-ghost" href="Samuel_Koo_Resume.pdf">Résumé (PDF)</a>
         </div>
+        <a class="gh-link" href="https://github.com/Samuel0720-source"><svg class="gh-icon" aria-hidden="true"><use href="#gh-mark"/></svg><span>github.com/Samuel0720-source</span></a>
       </div>
 
       <figure class="route" aria-labelledby="route-hint">
-        <svg class="route-svg" viewBox="-70 0 790 520" role="group" aria-label="Route map of this site. Each gate is a checkpoint you can open." tabindex="0">
-          <path id="track" class="track-bed" d="M110 300 C 92 160 210 70 330 104 C 430 132 528 96 540 214 C 552 318 446 334 396 384 C 340 440 238 486 160 440 C 112 412 116 356 110 300 Z"/>
+        <div class="hud" aria-hidden="true">
+          <span class="hud-cell"><span class="hud-key">Lap</span><span class="hud-val num" data-hud="lap">0</span></span>
+          <span class="hud-cell"><span class="hud-key">Best lap</span><span class="hud-val num" data-hud="best">none yet</span></span>
+          <span class="hud-cell"><span class="hud-key">Speed</span><span class="hud-val num" data-hud="speed">0</span></span>
+        </div>
+        <svg class="route-svg" viewBox="-90 0 830 520" role="group" aria-label="Race track map of this site. Each gate is a checkpoint you can open." tabindex="0">
+          <defs><path id="track" d="M110 300 C 92 160 210 70 330 104 C 430 132 528 96 540 214 C 552 318 446 334 396 384 C 340 440 238 486 160 440 C 112 412 116 356 110 300 Z"/></defs>
+          <use href="#track" class="track-curb-base"/>
+          <use href="#track" class="track-curb"/>
+          <use href="#track" class="track-road"/>
           <use href="#track" class="track-line"/>
+          <g id="startline"></g>
+          <path id="trail" class="trail"/>
           <g id="gates"></g>
-          <g id="marker" class="marker" aria-hidden="true">
-            <circle r="13"/>
-            <path d="M-4 -6 L7 0 L-4 6 Z"/>
+          <g id="marker" class="car" aria-hidden="true">
+            <rect class="car-dark" x="-25" y="-13" width="6" height="26" rx="1.5"/>
+            <rect class="car-dark" x="-18" y="-15" width="11" height="6" rx="2"/>
+            <rect class="car-dark" x="-18" y="9" width="11" height="6" rx="2"/>
+            <rect class="car-dark" x="8" y="-14" width="9" height="5" rx="2"/>
+            <rect class="car-dark" x="8" y="9" width="9" height="5" rx="2"/>
+            <path class="car-body" d="M-20 -7 C -20 -10 -15 -10 -10 -9 L 12 -5 C 20 -4 25 -2 25 0 C 25 2 20 4 12 5 L -10 9 C -15 10 -20 10 -20 7 Z"/>
+            <rect class="car-stripe" x="-19" y="-1.6" width="42" height="3.2" rx="1"/>
+            <rect class="car-dark" x="20" y="-12" width="4" height="24" rx="1.5"/>
+            <ellipse class="car-dark" cx="-3" cy="0" rx="6.5" ry="4.5"/>
+            <circle class="car-helmet" cx="-3" cy="0" r="2.8"/>
           </g>
         </svg>
-        <figcaption id="route-hint" class="route-hint"><span class="route-status" aria-live="polite">Drag the dot along the road, or click the map and drive with the arrow keys.</span></figcaption>
+        <figcaption id="route-hint" class="route-hint"><span class="route-status" aria-live="polite">Drag the car along the road, or click the track and drive with the arrow keys.</span></figcaption>
       </figure>
     </section>
 
-    <section id="projects" class="section container" aria-labelledby="projects-title">
+    <section class="board container" aria-label="Results at a glance">
+      <ul class="board-grid">
+        <li class="tile tone-2"><span class="tile-big">1st</span><span class="tile-note">Bioengineering, Waterloo Engineering Competition 2026</span></li>
+        <li class="tile tone-3"><span class="tile-big num">83%</span><span class="tile-note">atrazine removed with sensor-driven filter control</span></li>
+        <li class="tile tone-4"><span class="tile-big num">15 s</span><span class="tile-note">to flag a quietly failing server, no false alarms</span></li>
+        <li class="tile tone-5"><span class="tile-big num">0/68</span><span class="tile-note">healthy fists wrongly flagged by the hand checker</span></li>
+      </ul>
+    </section>
+
+    <section id="projects" class="section container tone-1" aria-labelledby="projects-title">
       <div class="section-head">
         <span class="cp" aria-hidden="true">01</span>
         <h2 id="projects-title">Projects, each with its test result</h2>
       </div>
 
-      <article class="work">
+      <article class="work tone-3">
         <div class="work-media work-figure">
           <p class="figure-big num">67% <span aria-hidden="true">→</span><span class="visually-hidden">to</span> 83%</p>
           <p class="figure-note">Atrazine removed across 200 simulated seasons: fixed calendar, then sensor-driven control.</p>
@@ -77,8 +109,8 @@
         </div>
       </article>
 
-      <article class="work work-flip">
-        <div class="work-media" data-slot="finger-color" data-alt="The hand-symptom checker’s start screen">
+      <article class="work work-flip tone-5">
+        <div class="work-media work-shot" data-slot="finger-color" data-alt="The hand-symptom checker's start screen">
           <img src="images/screens/finger-color.jpg" alt="The hand-symptom checker’s start screen, with Raynaud’s, trigger finger and carpal tunnel checks" width="1440" height="900" loading="lazy">
         </div>
         <div class="work-text">
@@ -90,8 +122,8 @@
         </div>
       </article>
 
-      <article class="work">
-        <div class="work-media" data-slot="gripcheck" data-alt="GripCheck’s home screen">
+      <article class="work tone-4">
+        <div class="work-media work-shot" data-slot="gripcheck" data-alt="GripCheck's home screen">
           <img src="images/screens/gripcheck.jpg" alt="GripCheck’s home screen with the 3D model of the dynamometer" width="1440" height="900" loading="lazy">
         </div>
         <div class="work-text">
@@ -103,7 +135,7 @@
         </div>
       </article>
 
-      <article class="work work-flip">
+      <article class="work work-flip tone-1">
         <div class="work-media work-figure">
           <p class="figure-big num">11.2% <span aria-hidden="true">→</span><span class="visually-hidden">to</span> 0.2%</p>
           <p class="figure-note">Failed requests during a server crash, before and after health checks. Recovery took 63.8 s.</p>
@@ -116,8 +148,8 @@
         </div>
       </article>
 
-      <article class="work">
-        <div class="work-media" data-slot="duri" data-alt="Duri’s home screen">
+      <article class="work tone-2">
+        <div class="work-media work-shot" data-slot="duri" data-alt="Duri's home screen">
           <img src="images/screens/duri-chrome-starter.jpg" alt="Duri’s home screen, an illustrated post office for couples" width="1440" height="600" loading="lazy">
         </div>
         <div class="work-text">
@@ -146,7 +178,7 @@
       </ul>
     </section>
 
-    <section id="awards" class="section container" aria-labelledby="awards-title">
+    <section id="awards" class="section container tone-2" aria-labelledby="awards-title">
       <div class="section-head">
         <span class="cp" aria-hidden="true">02</span>
         <h2 id="awards-title">Awards</h2>
@@ -162,52 +194,66 @@
       </ul>
     </section>
 
-    <section id="experience" class="section container" aria-labelledby="experience-title">
+    <section id="experience" class="section container tone-3" aria-labelledby="experience-title">
       <div class="section-head">
         <span class="cp" aria-hidden="true">03</span>
         <h2 id="experience-title">Experience and leadership</h2>
       </div>
       <ul class="rows rows-time">
-        <li><span class="row-date num">2026</span><span class="row-main">Biotron Design Team, mechanical sub-team</span><span class="row-side">University of Waterloo</span></li>
-        <li><span class="row-date num">2025 to 2026</span><span class="row-main">Retail and customer service associate, Sandy’s Farm Market</span><span class="row-side">Vancouver, BC</span></li>
-        <li><span class="row-date num">2023 to 2026</span><span class="row-main">Volunteer, Shoppers Drug Mart</span><span class="row-side">British Columbia</span></li>
-        <li><span class="row-date">High school</span><span class="row-main">Korean Club leader</span><span class="row-side">Ran a club averaging 70+ attendees</span></li>
-        <li><span class="row-date">High school</span><span class="row-main">Hounds Mentoring leader</span><span class="row-side">Mentored Grade 8 students for several years</span></li>
+        <li><span class="row-date num">2026</span><span class="row-main">Biotron Design Team, mechanical sub-team</span><span class="chip tone-4">Design team</span></li>
+        <li><span class="row-date num">2025 to 2026</span><span class="row-main">Retail and customer service associate, Sandy’s Farm Market, Vancouver</span><span class="chip tone-1">Work</span></li>
+        <li><span class="row-date num">2023 to 2026</span><span class="row-main">Volunteer, Shoppers Drug Mart, British Columbia</span><span class="chip tone-3">Volunteer</span></li>
+        <li><span class="row-date">High school</span><span class="row-main">Korean Club leader, a club averaging 70+ attendees</span><span class="chip tone-5">Leadership</span></li>
+        <li><span class="row-date">High school</span><span class="row-main">Hounds Mentoring leader, mentoring Grade 8 students</span><span class="chip tone-5">Leadership</span></li>
       </ul>
     </section>
 
-    <section id="toolkit" class="section container" aria-labelledby="toolkit-title">
+    <section id="toolkit" class="section container tone-4" aria-labelledby="toolkit-title">
       <div class="section-head">
         <span class="cp" aria-hidden="true">04</span>
         <h2 id="toolkit-title">Toolkit</h2>
       </div>
-      <dl class="tools">
-        <div><dt>Code</dt><dd>Python, TypeScript, JavaScript, SQL, C++ for Arduino</dd></div>
-        <div><dt>Data and ML</dt><dd>NumPy, SciPy, scikit-learn, PyTorch, MediaPipe, Bland-Altman</dd></div>
-        <div><dt>Web</dt><dd>React, Next.js, Flask, Supabase, WebRTC, Vercel</dd></div>
-        <div><dt>Testing and ops</dt><dd>Docker, Prometheus, Grafana, Locust, pytest, Playwright</dd></div>
-        <div><dt>Hardware and CAD</dt><dd>Load cells, IMUs, 3D printing, Fusion 360, KiCad</dd></div>
-        <div><dt>Languages</dt><dd>English and Korean</dd></div>
-      </dl>
+      <div class="tools">
+        <div class="tool-group tone-1"><h3>Code</h3><ul class="chips"><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>C++</li></ul></div>
+        <div class="tool-group tone-3"><h3>Data and ML</h3><ul class="chips"><li>NumPy</li><li>SciPy</li><li>scikit-learn</li><li>PyTorch</li><li>MediaPipe</li></ul></div>
+        <div class="tool-group tone-4"><h3>Web</h3><ul class="chips"><li>React</li><li>Next.js</li><li>Flask</li><li>Supabase</li><li>WebRTC</li></ul></div>
+        <div class="tool-group tone-5"><h3>Testing and ops</h3><ul class="chips"><li>Docker</li><li>Prometheus</li><li>Grafana</li><li>pytest</li><li>Playwright</li></ul></div>
+        <div class="tool-group tone-2"><h3>Hardware and CAD</h3><ul class="chips"><li>Load cells</li><li>IMUs</li><li>3D printing</li><li>Fusion 360</li><li>KiCad</li></ul></div>
+        <div class="tool-group tone-1"><h3>Languages</h3><ul class="chips"><li>English</li><li>Korean</li></ul></div>
+      </div>
     </section>
 
-    <section id="links" class="section container finish" aria-labelledby="links-title">
+    <section id="links" class="section container tone-5" aria-labelledby="links-title">
       <div class="section-head">
         <span class="cp" aria-hidden="true">05</span>
-        <h2 id="links-title">Find me here</h2>
+        <h2 id="links-title">GitHub and links</h2>
       </div>
+
+      <a class="gh-card" href="https://github.com/Samuel0720-source">
+        <svg class="gh-card-icon" aria-hidden="true"><use href="#gh-mark"/></svg>
+        <span class="gh-card-url">github.com/<wbr>Samuel0720-source</span>
+        <span class="gh-card-cta">Open profile</span>
+      </a>
+
+      <ul class="repos" data-repos>
+        <li class="repo tone-3"><a href="https://github.com/Samuel0720-source/Nephron"><span class="repo-name">Nephron</span><span class="repo-desc">Digital twin for a farm-drain atrazine filter</span><span class="chip">Python</span></a></li>
+        <li class="repo tone-4"><a href="https://github.com/Samuel0720-source/Spine-ai"><span class="repo-name">Spine-ai</span><span class="repo-desc">Lumbar MRI disc-herniation classifier, in progress</span><span class="chip">Python</span></a></li>
+        <li class="repo tone-5"><a href="https://github.com/Samuel0720-source/finger-color"><span class="repo-name">finger-color</span><span class="repo-desc">Phone-camera hand check for three hand conditions</span><span class="chip">JavaScript</span></a></li>
+        <li class="repo tone-2"><a href="https://github.com/Samuel0720-source/duri-chrome-starter"><span class="repo-name">duri-chrome-starter</span><span class="repo-desc">Private real-time room for two</span><span class="chip">TypeScript</span></a></li>
+      </ul>
+
       <ul class="link-grid">
-        <li><a href="https://github.com/Samuel0720-source"><span class="link-name">GitHub</span><span class="link-url">Samuel0720-source</span></a></li>
         <li><a href="Samuel_Koo_Resume.pdf"><span class="link-name">Résumé</span><span class="link-url">PDF, 3 pages</span></a></li>
-        <li><a href="https://finger-color.vercel.app"><span class="link-name">Hand checker</span><span class="link-url">finger-color.vercel.app</span></a></li>
-        <li><a href="https://gripcheck.vercel.app"><span class="link-name">GripCheck</span><span class="link-url">gripcheck.vercel.app</span></a></li>
+        <li><a href="https://finger-color.vercel.app"><span class="link-name">Hand checker</span><span class="link-url">Live app</span></a></li>
+        <li><a href="https://gripcheck.vercel.app"><span class="link-name">GripCheck</span><span class="link-url">Live app</span></a></li>
+        <li><a href="https://duri-chrome-starter.vercel.app"><span class="link-name">Duri</span><span class="link-url">Live app</span></a></li>
       </ul>
     </section>
   </main>
 
   <footer class="footer container">
     <p>Samuel Koo, Waterloo, Ontario, 2026</p>
-    <a href="#top">Back to the start</a>
+    <a href="#top">Back to the start line</a>
   </footer>
 
   <script src="main.js" defer></script>
