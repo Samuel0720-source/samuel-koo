@@ -1,0 +1,111 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{textcomp}
+\usepackage{needspace}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-6pt}\rule{\linewidth}{0.6pt}]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\setlist[itemize]{leftmargin=1.2em, itemsep=1pt, topsep=2pt, parsep=0pt}
+
+% \entry{Title}{right side}{details line}
+\newcommand{\entry}[3]{\needspace{4\baselineskip}\textbf{#1}\hfill #2\\{\small\itshape #3}\par}
+
+\begin{document}
+
+{\LARGE\bfseries Samuel Koo}\\[3pt]
+Honours Biomedical Engineering (Co-op), University of Waterloo\\[2pt]
+{\small \href{mailto:samuelkoo0720@gmail.com}{samuelkoo0720@gmail.com} \textbar{}
+\href{https://samuel-koo.vercel.app}{samuel-koo.vercel.app} \textbar{}
+\href{https://www.linkedin.com/in/samuel-koo-9a80b2435/}{linkedin.com/in/samuel-koo-9a80b2435} \textbar{}
+\href{https://github.com/Samuel0720-source}{github.com/Samuel0720-source}}\\[2pt]
+Seeking a Summer 2027 co-op in data, software or medical devices
+
+\section{Education}
+\entry{University of Waterloo}{Sep 2026 -- present}{Honours Biomedical Engineering (Co-op), first year}
+
+\section{Awards \& Scholarships}
+\begin{itemize}
+  \item WEC Bioengineering, 1st Place, Waterloo Engineering Competition (Nov 2026); advancing to OEC
+  \item President's Scholarship of Distinction, University of Waterloo (admission average of 95\% or higher)
+  \item Church Scholarship, Vancouver Korean Presbyterian Church (2025 -- 2026)
+  \item Principal's Award, Point Grey Secondary School, Vancouver
+  \item Cayley Contest, School Champion, Centre for Education in Mathematics and Computing (CEMC)
+\end{itemize}
+
+\section{Projects}
+\entry{NEPHRON: Digital Twin for a Farm-Drain Pesticide Filter}{Nov 2026}{Python, NumPy, Matplotlib \textbar{} WEC 1st Place \textbar{} github.com/Samuel0720-source/Nephron}
+\begin{itemize}
+  \item Co-designed, in a two-person team, a gravity-fed atrazine filter (woodchip trench plus a 3-stage carbon box) at a farm's tile-drain outlet to protect a Quebec drinking-water river.
+  \item Built the digital twin: sensor layout, a 365-day animated simulation of the unit, and a Monte Carlo model of storms, spraying and carbon saturation.
+  \item Over 200 simulated seasons, sensor-driven control (hold water before storms, swap carbon when removal drops below 85\%) raised removal from 67\% to 83\% compared with a fixed calendar.
+\end{itemize}
+
+\entry{ResiliGuard: Self-Healing Server Platform (Monitoring, Load Testing, AI)}{Nov 2026 -- present}{Python, Prometheus, Grafana, Locust, Docker, scikit-learn \textbar{} 3-person team}
+\begin{itemize}
+  \item Built the monitoring stack (Prometheus scraping, auto-provisioned Grafana dashboard with 18 queries) and 4 Locust load scenarios: normal, spike, server kill and a ``sick'' server.
+  \item Wrote an MTTR calculator and the three-mode experiment on real services: rule-based health checks cut failed requests during a server crash from 6.6\% to 0\%, with full recovery in 15.0 s.
+  \item Built AI early warning (z-score and Isolation Forest) that flagged a server failing 30\% of requests while still reporting ``ready'' within 20 s, with 0 false alarms; standard health checks never caught it.
+\end{itemize}
+
+\entry{Camera Hand-Symptom Checker}{Oct 2026 -- present}{JavaScript, Vite, MediaPipe, Chart.js, Python, Gemini API, Vercel \textbar{} finger-color.vercel.app}
+\begin{itemize}
+  \item Browser app that checks Raynaud's, trigger finger and carpal tunnel against published clinical criteria using MediaPipe hand tracking (21 landmarks) and guided self-tests, ending with one of 5 care levels and a PDF report.
+  \item Wrote validation protocols with pass/fail rules fixed before data collection; a 3-person pilot (32 goniometer pairs) showed +0.5\textdegree{} angle bias and 0 of 68 smooth fists falsely flagged, with Bland-Altman reports that rebuild automatically from CSVs.
+  \item Added a Gemini AI assistant with server-only API keys, a whitelist of allowed actions, rate limits and a built-in fallback that works without the AI.
+\end{itemize}
+
+\entry{GripCheck: Low-Cost 3D-Printed Grip Dynamometer}{Sep 2026 -- present}{Python, Flask, Arduino, scikit-learn, SciPy \textbar{} gripcheck.vercel.app \textbar{} team with Thomas Kim}
+\begin{itemize}
+  \item Built the test software: a standardized 3-trial protocol computing 5 force-time metrics (peak force, time to peak, RFD, fatigue, asymmetry), compared against Dodds 2014 norms.
+  \item Showed by Monte Carlo (300 trials) that a 4th-order Butterworth filter reduces RFD error spread, while a moving average biases it upward.
+  \item Trained a Random Forest trial-quality classifier on 2,000 synthetic curves: 99\% accuracy against 92\% for hand-tuned rules.
+\end{itemize}
+
+\entry{Duri: Real-Time Couple Web App}{2026}{Next.js, TypeScript, Supabase (Postgres, Realtime), WebRTC, Playwright \textbar{} duri-chrome-starter.vercel.app}
+\begin{itemize}
+  \item Shared room with chat, voice/video calls, a photo album, synced video watching and 8 real-time games, running as a website, PWA and Chrome extension from one codebase.
+  \item Enforced all rules in Postgres (row-level security, 88 secured functions) so hidden game state (poker cards, secrets) never reaches the browser.
+  \item Cut popup load time from \textasciitilde 0.6 s to \textasciitilde 0.3 s with local JWT verification; CI runs 106 unit, database and browser tests.
+\end{itemize}
+
+\entry{Lumbar MRI Disc Herniation Classifier (in progress)}{}{Python, SimpleITK, PyTorch \textbar{} github.com/Samuel0720-source/Spine-ai}
+\begin{itemize}
+  \item Data pipeline for the SPIDER MRI dataset (orientation checks, mask alignment) complete; patient-level splits and ResNet18 training next.
+\end{itemize}
+
+\entry{Adaptive Ski System for Children with LCPD}{}{Team design project, BME 161}
+
+\section{Design Team}
+\entry{Biotron Design Team, Mechanical Sub-team}{2026}{Knee cycloidal (KC) subsystem \textbar{} SolidWorks}
+\begin{itemize}
+  \item Designed the knee input shaft spacer (Mk1\_KC003): \O 40.00 mm \texttimes{} 19.05 mm (3/4''), hot-rolled steel, qty 2; waterjet-cut from 3/4'' plate by EMS, then outer holes tapped on a mill or drill press, or by hand in a vise.
+  \item Designed the cycloidal spacer plate (Mk1\_KC001): \O 155.00 mm \texttimes{} 3.18 mm (1/8''), 6061 aluminum, qty 2; waterjet-cut to final size by EMS, then clamped on the outer edge to tap the inner holes.
+  \item Wrote each part's manufacturing and workholding plan: stock form, process order and how to clamp it for tapping.
+\end{itemize}
+
+\section{Experience}
+\entry{Retail \& Customer Service Associate, Sandy's Farm Market}{May 2025 -- Aug 2026}{Vancouver, BC}
+\entry{Volunteer, Shoppers Drug Mart}{May 2023 -- Jan 2025}{British Columbia}
+
+\section{Leadership}
+\begin{itemize}
+  \item Korean Club Leader, high school (Sep 2024 -- Jun 2026): ran a club averaging 70+ attendees throughout the year
+  \item Hounds Mentoring Leader, high school (May 2025 -- Jun 2026): mentored Grade 8 students
+\end{itemize}
+
+\section{Skills}
+\textbf{Languages:} English (fluent), Korean (fluent)\\
+\textbf{Programming:} Python, JavaScript, TypeScript, SQL (PostgreSQL, PL/pgSQL), C++ (Arduino), HTML/CSS\\
+\textbf{Web:} React, Next.js, Vite, Flask, Supabase, WebRTC, PWA, Chrome Extensions (MV3), Vercel\\
+\textbf{Data \& ML:} NumPy, pandas, SciPy, scikit-learn (Random Forest, Isolation Forest), PyTorch, MediaPipe, SimpleITK, Matplotlib, Chart.js, Monte Carlo simulation, signal filtering, Bland-Altman analysis, Gemini API\\
+\textbf{DevOps \& Testing:} Docker/Docker Compose, Prometheus, Grafana, Locust, GitHub Actions, pytest, Playwright, Git\\
+\textbf{Hardware \& CAD:} SolidWorks, Fusion 360, AutoCAD, KiCad, Arduino, HX711 load-cell amplifier, strain gauges, IMU, 3D printing (Bambu)
+
+\end{document}

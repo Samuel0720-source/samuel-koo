@@ -191,6 +191,7 @@
 .facts dt { font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); padding-top: 0.1em; }
 .facts dd { margin: 0; max-width: 60ch; }
 .facts div:last-child dd { font-weight: 500; }
+.points { margin: 0; padding-left: 1.1em; display: grid; gap: var(--space-2xs); font-weight: 400; }
 /* NEPHRON: two meters against the design target */
 .meters { display: grid; gap: var(--space-xs); width: 100%; max-width: 30rem; }
 .meter { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 3rem; align-items: center; gap: var(--space-sm); font-size: var(--text-sm); }
