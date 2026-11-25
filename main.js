@@ -6,7 +6,7 @@ const GATES = [
   { at: 0.3, num: '02', name: 'Awards', href: '#awards' },
   { at: 0.5, num: '03', name: 'Experience', href: '#experience' },
   { at: 0.7, num: '04', name: 'Toolkit', href: '#toolkit' },
-  { at: 0.9, num: '05', name: 'GitHub', href: '#links' },
+  { at: 0.9, num: '05', name: 'Contact', href: '#links' },
 ];
 
 const svg = document.querySelector('.route-svg');
@@ -69,6 +69,7 @@ if (svg && track && marker) {
   }
 
   const trailEl = document.getElementById('trail');
+  const hudBox = document.querySelector('.hud');
   const hud = Object.fromEntries([...document.querySelectorAll('[data-hud]')].map((el) => [el.dataset.hud, el]));
   let trail = [], lap = 0, lapStart = null, best = null;
   const drawTrail = () => trailEl.setAttribute('d', trail.length > 1 ? 'M' + trail.map((q) => `${q.x.toFixed(1)} ${q.y.toFixed(1)}`).join(' L') : '');
@@ -102,7 +103,7 @@ if (svg && track && marker) {
     const prev = s;
     s = wrap(s + vel);
     const clock = performance.now(); // wall-clock lap time, parked time included
-    if (vel > 0 && prev > 0.8 && s < 0.2) { // crossed the start line forwards
+    if (engaged && vel > 0 && prev > 0.8 && s < 0.2) { // crossed the start line forwards (the intro roll doesn't count)
       if (lapStart !== null) {
         const t = clock - lapStart; best = best === null ? t : Math.min(best, t);
         status.textContent = `Lap ${lap} done in ${(t / 1000).toFixed(2)} s. Best lap ${(best / 1000).toFixed(2)} s.`;
@@ -117,8 +118,9 @@ if (svg && track && marker) {
     while (acc >= 1000 / 60) { moving = step(); acc -= 1000 / 60; }
     place();
     if (!reduced) { const p = at(s); trail.push({ x: p.x, y: p.y }); if (trail.length > 16 || !moving) trail.shift(); if (!moving) trail = []; drawTrail(); }
+    if (engaged && hudBox) hudBox.hidden = false; // no HUD until the visitor drives
     hud.lap.textContent = lap;
-    hud.best.textContent = best === null ? 'none yet' : `${(best / 1000).toFixed(2)} s`;
+    hud.best.textContent = best === null ? '–' : `${(best / 1000).toFixed(2)} s`;
     hud.speed.textContent = `${Math.round(Math.abs(vel) * L * 60 * 0.36)} km/h`;
     if (moving) requestAnimationFrame(tick); else { running = false; last = 0; acc = 0; }
   };
@@ -206,14 +208,13 @@ if (lensBar) {
   lensBar.hidden = false;
 }
 
-// NEPHRON loop: a still without JS or with reduced motion; otherwise it plays, with a pause button (WCAG 2.2.2).
-const loop = document.querySelector('img[data-anim]');
+// NEPHRON loop: the poster still without JS or with reduced motion; otherwise it plays, with a pause button (WCAG 2.2.2).
+const loop = document.querySelector('.work-loop video');
 if (loop) {
-  const still = loop.getAttribute('src');
   const btn = loop.parentElement.querySelector('.loop-toggle');
-  const play = (on) => { loop.src = on ? loop.dataset.anim : still; btn.textContent = on ? 'Pause the loop' : 'Play the loop'; };
-  btn.addEventListener('click', () => play(loop.getAttribute('src') === still));
-  play(!matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const play = (on) => { if (on) loop.play().catch(() => {}); else loop.pause(); btn.textContent = on ? 'Pause the loop' : 'Play the loop'; };
+  btn.addEventListener('click', () => play(loop.paused));
+  play(!reduced);
   btn.hidden = false;
 }
 
@@ -223,36 +224,3 @@ const reveal = new IntersectionObserver((entries) => {
 }, { rootMargin: '0px 0px -10% 0px' });
 document.documentElement.classList.add('js'); // hide-until-revealed only once the observer exists
 document.querySelectorAll('.work').forEach((el) => reveal.observe(el));
-
-// GitHub: refresh the repo cards with live data; the static cards stay if the request fails.
-const repoList = document.querySelector('[data-repos]');
-if (repoList) {
-  const OWNER = 'Samuel0720-source';
-  fetch(`https://api.github.com/users/${OWNER}/repos?per_page=100&sort=pushed`)
-    .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-    .then((repos) => {
-      if (!Array.isArray(repos)) throw new Error('unexpected GitHub response');
-      const HIDDEN = new Set([OWNER, 'Spine-ai']); // Spine-ai stays in "Also on the route"; the team self-restore repo takes its card
-      const shown = repos.filter((r) => r && typeof r.name === 'string' && !r.fork && !HIDDEN.has(r.name)).slice(0, 7);
-      if (!shown.length) return;
-      // First clause only, at most 12 words, so the cards stay scannable.
-      const short = (d) => (typeof d === 'string' && d ? d.split(/[.(:;]/)[0].trim().split(/\s+/).slice(0, 12).join(' ') : 'No description yet');
-      const fmt = new Intl.DateTimeFormat('en-CA', { month: 'short', day: 'numeric', year: 'numeric' });
-      const pinned = repoList.querySelector('[data-pinned]'); // a team repo the live list can't see; kept second
-      const cards = shown.map((r, i) => {
-        const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; };
-        const li = el('li', `repo tone-${(i % 5) + 1}`);
-        const a = el('a');
-        a.href = String(r.html_url).startsWith('https://github.com/') ? r.html_url : `https://github.com/${OWNER}`;
-        a.append(el('span', 'repo-name', r.name), el('span', 'repo-desc', short(r.description)));
-        if (typeof r.language === 'string') a.append(el('span', 'chip', r.language));
-        const pushed = new Date(r.pushed_at);
-        if (!Number.isNaN(pushed.getTime())) a.append(el('span', 'repo-meta', `Updated ${fmt.format(pushed)}`));
-        li.append(a);
-        return li;
-      });
-      if (pinned) cards.splice(1, 0, pinned);
-      repoList.replaceChildren(...cards);
-    })
-    .catch((err) => console.warn('GitHub refresh failed; showing the saved repo cards.', err));
-}
