@@ -217,3 +217,22 @@ if (loop) {
   play(!reduced);
   btn.hidden = false;
 }
+
+// 3D race: offered only where WebGL works; three.js and the game load on the first press.
+const raceBtn = document.querySelector('.race-start');
+const hasGL = (() => { try { return Boolean(document.createElement('canvas').getContext('webgl2')); } catch { return false; } })();
+if (raceBtn && hasGL) {
+  const label = raceBtn.querySelector('.race-start-label');
+  raceBtn.hidden = false;
+  raceBtn.addEventListener('click', async () => {
+    raceBtn.disabled = true; label.textContent = 'Loading the race';
+    try {
+      const { startRace } = await import('./race3d.js');
+      startRace(document.querySelector('.route'));
+    } catch (err) {
+      console.warn('3D race failed to load; the map still works.', err);
+    }
+    raceBtn.disabled = false; label.textContent = 'Play the 3D race';
+  });
+  document.querySelector('.route').addEventListener('race3d:stop', () => raceBtn.focus());
+}
