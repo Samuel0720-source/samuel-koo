@@ -53,9 +53,9 @@
     <section class="hero container" aria-labelledby="hero-title">
       <div class="hero-copy">
         <h1 id="hero-title">I build medical and data tools, then&nbsp;test&nbsp;them.</h1>
-        <p class="lead" data-for="bio">Samuel Koo, first-year Biomedical Engineering at Waterloo. WEC 2026 Bioengineering winner, looking for a Summer 2027 co-op in data, software or medical devices.</p>
-        <p class="lead" data-for="sw" hidden>Samuel Koo, first-year Biomedical Engineering at Waterloo. I write the software that tests things: a digital twin, a hand tracker, server load tests.</p>
-        <p class="lead" data-for="mech" hidden>Samuel Koo, first-year Biomedical Engineering at Waterloo. Biotron mechanical sub-team, a 3D-printed grip meter, and an adaptive ski design for children with a hip disease.</p>
+        <p class="lead" data-for="bio">Samuel Koo, first-year Biomedical Engineering student at the University of Waterloo.</p>
+        <p class="lead" data-for="sw" hidden>Samuel Koo, Waterloo BME. I write the software that tests things.</p>
+        <p class="lead" data-for="mech" hidden>Samuel Koo, Waterloo BME, on the Biotron mechanical sub-team.</p>
         <div class="actions">
           <a class="btn btn-primary" href="#projects">See the projects</a>
           <a class="btn btn-ghost" href="Samuel_Koo_Resume.pdf">Résumé (PDF)</a>
@@ -109,7 +109,7 @@
         <li class="tile tone-2" data-topics="bio"><span class="tile-big">1st</span> <span class="tile-note">Bioengineering, Waterloo Engineering Competition 2026</span></li>
         <li class="tile tone-3" data-topics="bio sw"><span class="tile-big num">83%</span> <span class="tile-note">atrazine removed over 200 simulated seasons, up from 67%</span></li>
         <li class="tile tone-5" data-topics="bio sw"><span class="tile-big num">0/68</span> <span class="tile-note">smooth fists wrongly flagged in the hand checker’s pilot</span></li>
-        <li class="tile tone-4" data-topics="sw"><span class="tile-big num">20 s</span> <span class="tile-note">for my AI check to flag a server that looked healthy but failed 30% of requests, with no false alarms</span></li>
+        <li class="tile tone-4" data-topics="sw"><span class="tile-big num">20 s</span> <span class="tile-note">for my AI check to flag a server failing 30% of requests, with 0 false alarms</span></li>
       </ul>
     </section>
 
@@ -128,12 +128,12 @@
         </figure>
         <div class="work-text">
           <h3>NEPHRON</h3>
-          <p class="work-tag">WEC 2026 Bioengineering, 1st place · team of 2</p>
+          <p class="work-tag">1st place at WEC 2026, team of 2</p>
           <ul class="topics"><li class="topic-bio">Bio &amp; medical</li><li class="topic-sw">Software &amp; data</li></ul>
           <dl class="facts">
-            <div><dt>Problem</dt><dd>A farm drain carries the weed-killer atrazine into a Quebec river that people drink from.</dd></div>
-            <div><dt>My part</dt><dd>The Python digital twin: sensor layout, a year-long simulation and a Monte Carlo model of storms and filter wear.</dd></div>
-            <div><dt>Result</dt><dd>Letting the sensors decide when to hold water and swap carbon raised removal from 67% to 83% (median of 200 simulated seasons).</dd></div>
+            <div><dt>Problem</dt><dd>Atrazine from a farm drain reaches a Quebec drinking-water river.</dd></div>
+            <div><dt>My part</dt><dd>The Python digital twin and its Monte Carlo model of storms.</dd></div>
+            <div><dt>Result</dt><dd>Sensor-led control raised removal from 67% to 83% over 200 simulated seasons.</dd></div>
           </dl>
           <div class="meters" role="img" aria-label="Atrazine removed at one unit: 67% on a fixed calendar, 83% with the digital twin. Design target 95%.">
             <div class="meter"><span class="meter-label">Fixed calendar</span><span class="meter-track"><span class="meter-fill is-quiet" data-v="67"></span><span class="meter-target" data-v="95"></span></span><span class="meter-val num">67%</span></div>
@@ -151,12 +151,12 @@
         </div>
         <div class="work-text">
           <h3>Camera hand-symptom checker</h3>
-          <p class="work-tag">Solo project · pilot with 3 people</p>
+          <p class="work-tag">Solo project, piloted with 3 people</p>
           <ul class="topics"><li class="topic-bio">Bio &amp; medical</li><li class="topic-sw">Software &amp; data</li></ul>
           <dl class="facts">
-            <div><dt>Problem</dt><dd>Raynaud’s, trigger finger and carpal tunnel are hard to describe in a short appointment, but each has a sign a camera can see.</dd></div>
-            <div><dt>My part</dt><dd>A browser app that tracks 21 hand points and runs guided self-tests against published criteria. I wrote the pass/fail rules before collecting any data.</dd></div>
-            <div><dt>Result</dt><dd>0 of 68 smooth fists falsely flagged. Finger angle bias +0.5° (target ±5°, passed); 95% limits −14.9° to +15.8°, missing the ±15° target by 0.8°.</dd></div>
+            <div><dt>Problem</dt><dd>Three hand conditions are hard to describe in a short appointment.</dd></div>
+            <div><dt>My part</dt><dd>A camera app with guided self-tests. I wrote the pass/fail rules before collecting data.</dd></div>
+            <div><dt>Result</dt><dd>0 of 68 smooth fists falsely flagged. Angle limits missed the ±15° target by 0.8°.</dd></div>
           </dl>
           <p class="stack">JavaScript, MediaPipe, Chart.js, Python, Gemini API</p>
           <p class="work-links"><a class="text-link" href="https://finger-color.vercel.app">Try it live</a><a class="text-link" href="https://github.com/Samuel0720-source/finger-color">Code on GitHub</a><a class="text-link" href="reports/Camera_Hand_Symptom_Checker_Pilot_Validation_Report_2026.pdf">Pilot report (PDF)</a></p>
@@ -169,12 +169,12 @@
         </div>
         <div class="work-text">
           <h3>GripCheck</h3>
-          <p class="work-tag">Team project · my part: the test software</p>
+          <p class="work-tag">Team project, calibration in progress</p>
           <ul class="topics"><li class="topic-bio">Bio &amp; medical</li><li class="topic-mech">Hardware</li><li class="topic-sw">Software &amp; data</li></ul>
           <dl class="facts">
-            <div><dt>Problem</dt><dd>A grip test usually reports one peak number. A low-cost 3D-printed meter can record the whole force curve.</dd></div>
-            <div><dt>My part</dt><dd>A 3-trial protocol that computes 5 force-time metrics and compares them with published norms (Dodds 2014), and an automatic check for bad trials.</dd></div>
-            <div><dt>Result</dt><dd>The bad-trial check reached 99% accuracy against 92% for hand-tuned rules, on 2,000 simulated curves. Readings are datasheet-scaled until calibration is done.</dd></div>
+            <div><dt>Problem</dt><dd>A grip test usually reports one peak number, not the force curve.</dd></div>
+            <div><dt>My part</dt><dd>Test software: 5 force-time metrics against published norms, and a bad-trial check.</dd></div>
+            <div><dt>Result</dt><dd>The bad-trial check scored 99% against 92% for hand-tuned rules, on 2,000 simulated curves.</dd></div>
           </dl>
           <p class="stack">Python, Flask, Arduino, scikit-learn, SciPy</p>
           <p class="work-links"><a class="text-link" href="https://gripcheck.vercel.app">Try it live</a><a class="text-link" href="https://github.com/nxtkim-1/hand-dynamometer">Team repo on GitHub</a></p>
@@ -184,16 +184,16 @@
       <article class="work work-flip tone-1" data-topics="sw">
         <div class="work-media work-figure">
           <p class="figure-big num">6.6% <span role="img" aria-label="to">→</span> 0%</p>
-          <p class="figure-note">Requests that failed when a server was killed: no protection, then health-check rules. Team test on real services; back to full health in 15.0 s.</p>
+          <p class="figure-note">Failed requests when a server was killed, without and with health checks. Back to full health in 15.0 s.</p>
         </div>
         <div class="work-text">
           <h3>ResiliGuard</h3>
-          <p class="work-tag">Team of 3 · my part: monitoring, load tests, AI early warning</p>
+          <p class="work-tag">Team of 3</p>
           <ul class="topics"><li class="topic-sw">Software &amp; data</li></ul>
           <dl class="facts">
-            <div><dt>Problem</dt><dd>A server can fail 30% of requests while still telling the health check it is fine.</dd></div>
-            <div><dt>My part</dt><dd>The Prometheus and Grafana monitoring, 4 Locust load scenarios, a recovery-time calculator and an AI early-warning model (z-score and Isolation Forest).</dd></div>
-            <div><dt>Result</dt><dd>The AI check flagged that server in 20 s with 0 false alarms; the standard health check never did.</dd></div>
+            <div><dt>Problem</dt><dd>A server can fail 30% of requests and still pass its health check.</dd></div>
+            <div><dt>My part</dt><dd>Monitoring, 4 load-test scenarios and an AI early-warning model.</dd></div>
+            <div><dt>Result</dt><dd>The AI flagged that server in 20 s with 0 false alarms; the health check never did.</dd></div>
           </dl>
           <p class="stack">Python, Prometheus, Grafana, Locust, Docker, scikit-learn</p>
           <p class="work-links"><a class="text-link" href="https://github.com/AndrewOh077/Software-project">Team repo on GitHub</a></p>
@@ -206,12 +206,12 @@
         </div>
         <div class="work-text">
           <h3>Duri</h3>
-          <p class="work-tag">Personal project · website, PWA and Chrome extension</p>
+          <p class="work-tag">Personal project</p>
           <ul class="topics"><li class="topic-sw">Software &amp; data</li></ul>
           <dl class="facts">
-            <div><dt>Problem</dt><dd>Two people want one shared room for chat, calls, photos and games, and a game is only fun if you can’t see your partner’s answer early.</dd></div>
-            <div><dt>My part</dt><dd>Built it as one Next.js codebase for all three: chat, voice and video calls, a shared album and eight real-time games.</dd></div>
-            <div><dt>Result</dt><dd>Game rules run inside the database, so hidden cards never reach the other player’s browser.</dd></div>
+            <div><dt>Problem</dt><dd>A couples’ game is only fun if you can’t see your partner’s answer early.</dd></div>
+            <div><dt>My part</dt><dd>Website, PWA and Chrome extension from one Next.js codebase, with eight real-time games.</dd></div>
+            <div><dt>Result</dt><dd>Game rules run inside the database, so hidden cards never reach the other browser.</dd></div>
           </dl>
           <p class="stack">Next.js, TypeScript, Supabase, WebRTC, Playwright</p>
           <p class="work-links"><a class="text-link" href="https://duri-chrome-starter.vercel.app">Visit Duri</a><a class="text-link" href="https://github.com/Samuel0720-source/duri-chrome-starter">Code on GitHub</a></p>
@@ -222,11 +222,11 @@
       <ul class="index" data-sort>
         <li data-topics="bio sw">
           <a href="https://github.com/Samuel0720-source/Spine-ai">Lumbar MRI disc herniation classifier</a>
-          <span class="index-meta">In progress · data pipeline done, model training next · PyTorch</span>
+          <span class="index-meta">In progress, PyTorch</span>
         </li>
         <li data-topics="mech bio">
           <span class="index-name">Adaptive ski system for children with LCPD</span>
-          <span class="index-meta">Team design project, BME 161 · course work, not public</span>
+          <span class="index-meta">BME 161 team design project, not public</span>
         </li>
       </ul>
     </section>
@@ -254,7 +254,7 @@
         <h2 id="experience-title">Experience and leadership</h2>
       </div>
       <ul class="rows rows-time">
-        <li><span class="row-date num">2026</span><span class="row-main">Biotron Design Team, mechanical sub-team <span class="row-note">· team work, not public</span></span><span class="chip tone-4">Design team</span></li>
+        <li><span class="row-date num">2026</span><span class="row-main">Biotron Design Team, mechanical sub-team <span class="row-note">(team work, not public)</span></span><span class="chip tone-4">Design team</span></li>
         <li><span class="row-date num">2025 to 2026</span><span class="row-main">Retail and customer service associate, Sandy’s Farm Market, Vancouver</span><span class="chip tone-1">Work</span></li>
         <li><span class="row-date num">2023 to 2025</span><span class="row-main">Volunteer, Shoppers Drug Mart, British Columbia</span><span class="chip tone-3">Volunteer</span></li>
         <li><span class="row-date">High school</span><span class="row-main">Korean Club leader, a club averaging 70+ attendees</span><span class="chip tone-5">Leadership</span></li>

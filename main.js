@@ -217,10 +217,3 @@ if (loop) {
   play(!reduced);
   btn.hidden = false;
 }
-
-// One reveal for the project rows.
-const reveal = new IntersectionObserver((entries) => {
-  for (const en of entries) if (en.isIntersecting) { en.target.classList.add('is-in'); reveal.unobserve(en.target); }
-}, { rootMargin: '0px 0px -10% 0px' });
-document.documentElement.classList.add('js'); // hide-until-revealed only once the observer exists
-document.querySelectorAll('.work').forEach((el) => reveal.observe(el));
