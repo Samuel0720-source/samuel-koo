@@ -6,13 +6,21 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
   --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
-  --container: 1280px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
   --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
-  --color-paper: oklch(95.5% 0.006 250); --color-paper-2: oklch(91.5% 0.009 250); --color-paper-3: oklch(86% 0.012 250);
-  --color-ink: oklch(21% 0.02 262); --color-ink-2: oklch(33% 0.02 262); --color-muted: oklch(47% 0.015 262);
-  --color-rule: oklch(82% 0.01 250); --color-on-ink: oklch(95.5% 0.006 250); --color-on-ink-muted: oklch(76% 0.012 250);
-  --color-accent: oklch(67% 0.2 42); --color-c1: oklch(68% 0.2 42); --color-c2: oklch(83% 0.16 88); --color-c3: oklch(72% 0.17 155); --color-c4: oklch(68% 0.16 245); --color-c5: oklch(72% 0.18 355); --color-field: oklch(90% 0.05 150); --color-road: oklch(30% 0.015 262); --color-accent-ink: oklch(21% 0.02 262); --color-focus: oklch(50% 0.2 42);
-  --font-display: "Unbounded", ui-sans-serif, system-ui, sans-serif; --font-body: "Geist", ui-sans-serif, system-ui, sans-serif; --font-outlier: var(--font-body);
-  --radius-card: 14px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
+  /* the bench: an ESD mat, with white test-record sheets laid on it */
+  --color-paper: oklch(47% 0.035 232); --color-paper-2: oklch(42% 0.035 232); --color-paper-3: oklch(53% 0.035 232);
+  --color-on-paper: oklch(98% 0.004 232); --color-on-paper-2: oklch(90% 0.014 232); --color-rule-on-paper: oklch(62% 0.03 232);
+  --color-sheet: oklch(98.6% 0.003 232); --color-sheet-2: oklch(95.5% 0.006 232);
+  --color-ink: oklch(20% 0.02 245); --color-ink-2: oklch(34% 0.02 245); --color-muted: oklch(47% 0.018 245);
+  --color-rule: oklch(87% 0.01 232);
+  --color-accent: oklch(87% 0.15 96); --color-accent-ink: oklch(20% 0.02 245); --color-focus: oklch(20% 0.02 245);
+  /* verdicts carry meaning only: always with their word */
+  --color-pass: oklch(40% 0.11 152); --color-pass-bg: oklch(93% 0.05 152);
+  --color-fail: oklch(45% 0.17 28); --color-fail-bg: oklch(93% 0.04 28);
+  --color-notyet: oklch(43% 0.09 70); --color-notyet-bg: oklch(94% 0.05 85);
+  --color-measured: oklch(34% 0.02 245); --color-measured-bg: oklch(93% 0.008 232);
+  --font-display: "Archivo", ui-sans-serif, sans-serif; --font-body: "Archivo", ui-sans-serif, system-ui, sans-serif; --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
+  --radius-card: 6px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
   --tracking-display: -0.02em;
 }

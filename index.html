@@ -4,47 +4,36 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Samuel Koo | Biomedical Engineering, Waterloo</title>
-  <meta name="description" content="Samuel Koo, first-year Biomedical Engineering student at the University of Waterloo, seeking a Summer 2027 co-op in data, software or medical devices. Five projects, each with its test result.">
+  <meta name="description" content="Samuel Koo, first-year Biomedical Engineering student at the University of Waterloo, seeking a Summer 2027 co-op in data, software or medical devices. Five projects and every test result, including the misses.">
   <meta property="og:title" content="Samuel Koo · Biomedical Engineering, Waterloo">
-  <meta property="og:description" content="I build medical and data tools, then test them. WEC 2026 Bioengineering winner, looking for a Summer 2027 co-op.">
+  <meta property="og:description" content="I build medical and data tools, then test them. Every result on the page, including the ones that missed.">
   <meta property="og:image" content="https://samuel-koo.vercel.app/images/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Samuel Koo, Biomedical Engineering at Waterloo: 1st at WEC 2026 Bioengineering, atrazine removal raised from 67% to 83%, 0 of 68 false alarms in a hand-checker pilot">
+  <meta property="og:image:alt" content="Samuel Koo's results ledger: 14 results from five projects, marked pass, fail, not yet or measured">
   <meta property="og:url" content="https://samuel-koo.vercel.app/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Unbounded:wght@500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip" href="#projects">Skip to projects</a>
+  <a class="skip" href="#ledger">Skip to the results</a>
 
-  <svg width="0" height="0" class="visually-hidden" aria-hidden="true">
-    <symbol id="gh-mark" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.540 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.010.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.020.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
-  </svg>
-
-  <aside class="seeking" aria-label="Availability">
-    <div class="container seeking-inner">
-      <p><span class="seeking-dot" aria-hidden="true"></span>Seeking a Summer 2027 co-op (4 months) in data, software or medical devices</p>
-      <a href="mailto:samuelkoo0720@gmail.com">samuelkoo0720@gmail.com</a>
-    </div>
-  </aside>
-
-  <header class="nav">
-    <div class="container nav-inner">
+  <header class="bar">
+    <div class="container bar-inner">
       <a class="wordmark" href="#top">Samuel Koo</a>
-      <nav aria-label="Checkpoints">
-        <ol class="nav-list">
-          <li class="tone-1"><a href="#projects"><span class="nav-num">01</span><span class="nav-label">Projects</span></a></li>
-          <li class="tone-2"><a href="#awards"><span class="nav-num">02</span><span class="nav-label">Awards</span></a></li>
-          <li class="tone-3"><a href="#experience"><span class="nav-num">03</span><span class="nav-label">Experience</span></a></li>
-          <li class="tone-4"><a href="#toolkit"><span class="nav-num">04</span><span class="nav-label">Toolkit</span></a></li>
-          <li class="tone-5"><a href="#links"><span class="nav-num">05</span><span class="nav-label">Contact</span></a></li>
-        </ol>
+      <p class="bar-status">Open to a Summer 2027 co-op in data, software or medical devices</p>
+      <nav aria-label="Sections">
+        <ul class="bar-links">
+          <li><a href="#projects">Records</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#links">Contact</a></li>
+        </ul>
       </nav>
     </div>
   </header>
@@ -52,195 +41,167 @@
   <main id="top">
     <section class="hero container" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <h1 id="hero-title">I build medical and data tools, then&nbsp;test&nbsp;them.</h1>
-        <p class="lead" data-for="bio">Samuel Koo, first-year Biomedical Engineering student at the University of Waterloo.</p>
-        <p class="lead" data-for="sw" hidden>Samuel Koo, Waterloo BME. I write the software that tests things.</p>
-        <p class="lead" data-for="mech" hidden>Samuel Koo, Waterloo BME, on the Biotron mechanical sub-team.</p>
+        <h1 id="hero-title">I build medical and data tools, then test&nbsp;them.</h1>
+        <p class="lead">First-year Biomedical Engineering at Waterloo. Every result is below, misses included.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="#projects">See the projects</a>
+          <a class="btn btn-primary" href="#projects">See the records</a>
           <a class="btn btn-ghost" href="Samuel_Koo_Resume.pdf">Résumé (PDF)</a>
         </div>
-        <a class="gh-link" href="https://github.com/Samuel0720-source"><svg class="gh-icon" aria-hidden="true"><use href="#gh-mark"/></svg><span>github.com/Samuel0720-source</span></a>
-        <div class="lens" data-lens-bar hidden>
-          <p class="lens-label" id="lens-label">Show my work as</p>
-          <div class="lens-buttons" role="group" aria-labelledby="lens-label">
-            <button type="button" class="topic-bio" value="bio" aria-pressed="true">Bio &amp; medical</button>
-            <button type="button" class="topic-sw" value="sw" aria-pressed="false">Software &amp; data</button>
-            <button type="button" class="topic-mech" value="mech" aria-pressed="false">Hardware</button>
+        <p class="hero-facts"><span class="hero-fact"><strong>1st</strong> in Bioengineering, Waterloo Engineering Competition 2026</span></p>
+      </div>
+
+      <div class="sheet ledger" id="ledger" aria-labelledby="ledger-title">
+        <div class="ledger-head">
+          <h2 id="ledger-title">Results ledger</h2>
+          <p class="ledger-note">Pass and fail only where I set the target before testing</p>
+        </div>
+        <div class="ledger-filter" role="group" aria-label="Show results" hidden>
+          <button type="button" value="all" aria-pressed="true">All <span class="num">14</span></button>
+          <button type="button" value="pass" aria-pressed="false">Pass <span class="num">2</span></button>
+          <button type="button" value="fail" aria-pressed="false">Fail <span class="num">4</span></button>
+          <button type="button" value="notyet" aria-pressed="false">Not yet <span class="num">2</span></button>
+          <button type="button" value="measured" aria-pressed="false">Measured <span class="num">6</span></button>
+        </div>
+        <p class="visually-hidden" aria-live="polite" data-ledger-status></p>
+        <table class="ledger-table">
+          <caption class="visually-hidden">14 results from five projects, with the verdict for each</caption>
+          <thead><tr><th scope="col">Project</th><th scope="col">Check</th><th scope="col">Result</th><th scope="col">Verdict</th></tr></thead>
+          <tbody>
+            <tr data-v="fail"><td><a href="#rec-nephron">NEPHRON</a></td><td>Removal at one unit, 95% design target</td><td class="m">83%</td><td><span class="verdict fail">Fail</span></td></tr>
+            <tr data-v="measured"><td><a href="#rec-nephron">NEPHRON</a></td><td>Digital twin against a fixed calendar</td><td class="m">83% vs 67%</td><td><span class="verdict measured">Measured</span></td></tr>
+            <tr data-v="pass"><td><a href="#rec-hands">Hand checker</a></td><td>Angle bias within ±5°</td><td class="m">+0.5°</td><td><span class="verdict pass">Pass</span></td></tr>
+            <tr data-v="fail"><td><a href="#rec-hands">Hand checker</a></td><td>95% limits within ±15°</td><td class="m">−14.9° to +15.8°</td><td><span class="verdict fail">Fail</span></td></tr>
+            <tr data-v="notyet"><td><a href="#rec-hands">Hand checker</a></td><td>Repeatability, ICC 0.75 or higher</td><td class="m">needs 2+ sessions</td><td><span class="verdict notyet">Not yet</span></td></tr>
+            <tr data-v="fail"><td><a href="#rec-hands">Hand checker</a></td><td>80% of deliberate catches found</td><td class="m">9 of 12</td><td><span class="verdict fail">Fail</span></td></tr>
+            <tr data-v="pass"><td><a href="#rec-hands">Hand checker</a></td><td>10% or fewer smooth fists flagged</td><td class="m">0 of 68</td><td><span class="verdict pass">Pass</span></td></tr>
+            <tr data-v="fail"><td><a href="#rec-hands">Hand checker</a></td><td>Fewer than 1 in 5 runs not scored</td><td class="m">2 of 10</td><td><span class="verdict fail">Fail</span></td></tr>
+            <tr data-v="measured"><td><a href="#rec-grip">GripCheck</a></td><td>Bad-trial check, 2,000 simulated curves</td><td class="m">99% vs 92%</td><td><span class="verdict measured">Measured</span></td></tr>
+            <tr data-v="notyet"><td><a href="#rec-grip">GripCheck</a></td><td>Force calibration</td><td class="m">datasheet-scaled</td><td><span class="verdict notyet">Not yet</span></td></tr>
+            <tr data-v="measured"><td><a href="#rec-resili">ResiliGuard</a></td><td>Failed requests when a server is killed</td><td class="m">6.6% to 0%</td><td><span class="verdict measured">Measured</span></td></tr>
+            <tr data-v="measured"><td><a href="#rec-resili">ResiliGuard</a></td><td>Time to flag a quietly failing server</td><td class="m">20 s</td><td><span class="verdict measured">Measured</span></td></tr>
+            <tr data-v="measured"><td><a href="#rec-resili">ResiliGuard</a></td><td>Back to full health after a crash</td><td class="m">15.0 s</td><td><span class="verdict measured">Measured</span></td></tr>
+            <tr data-v="measured"><td><a href="#rec-duri">Duri</a></td><td>Chrome popup open time</td><td class="m">~0.6 s to ~0.3 s</td><td><span class="verdict measured">Measured</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="projects" class="records container" aria-labelledby="projects-title">
+      <h2 id="projects-title" class="section-title">Five records</h2>
+
+      <article class="sheet record" id="rec-nephron" aria-labelledby="t-nephron">
+        <header class="record-head">
+          <p class="record-no num">01</p>
+          <h3 id="t-nephron">NEPHRON</h3>
+          <p class="record-meta">1st place at WEC 2026, team of 2, November 2026</p>
+        </header>
+        <div class="record-body">
+          <div class="record-text">
+            <p class="record-what">A buried filter that keeps a farm drain’s atrazine out of a Quebec drinking-water river. I built the Python digital twin and its Monte Carlo model of storms.</p>
+            <div class="meters" role="img" aria-label="Atrazine removed at one unit: 67% on a fixed calendar, 83% with the digital twin, against a 95% design target">
+              <div class="meter"><span class="meter-label">Fixed calendar</span><span class="meter-track"><span class="meter-fill is-quiet" data-w="67"></span><span class="meter-target" data-w="95"></span></span><span class="meter-val m">67%</span></div>
+              <div class="meter"><span class="meter-label">Digital twin</span><span class="meter-track"><span class="meter-fill" data-w="83"></span><span class="meter-target" data-w="95"></span></span><span class="meter-val m">83%</span></div>
+              <p class="meter-key"><span class="meter-key-tick" aria-hidden="true"></span>95% design target, not reached: the fix is a bigger carbon box, not more control logic</p>
+            </div>
+            <p class="stack">Python, NumPy, Matplotlib</p>
+            <p class="links"><a href="https://github.com/Samuel0720-source/Nephron">Code on GitHub</a><a href="NEPHRON_WEC_2026_Report.pdf">Competition report (PDF)</a></p>
           </div>
-          <p class="visually-hidden" aria-live="polite" data-lens-status></p>
+          <figure class="record-media loop">
+            <video src="images/nephron-twin.mp4" poster="images/nephron-twin.jpg" width="960" height="540" muted loop playsinline preload="none"></video>
+            <button type="button" class="loop-toggle" hidden>Play the loop</button>
+            <figcaption class="visually-hidden">One simulated year of the NEPHRON unit: sensors in the inlet box, woodchip trench, carbon box and outlet report to the digital twin, which tells the farmer when to hold water and when to swap carbon cartridges</figcaption>
+          </figure>
         </div>
-      </div>
+      </article>
 
-      <figure class="route" aria-labelledby="route-hint">
-        <div class="hud" aria-hidden="true" hidden>
-          <span class="hud-cell"><span class="hud-key">Lap</span> <span class="hud-val num" data-hud="lap"></span></span>
-          <span class="hud-cell"><span class="hud-key">Best lap</span> <span class="hud-val num" data-hud="best"></span></span>
-          <span class="hud-cell"><span class="hud-key">Speed</span> <span class="hud-val num" data-hud="speed"></span></span>
-        </div>
-        <svg class="route-svg" viewBox="-90 0 830 520" role="group" aria-label="Race track map of this site. Each gate is a checkpoint you can open." tabindex="0">
-          <defs><path id="track" d="M110 300 C 92 160 210 70 330 104 C 430 132 528 96 540 214 C 552 318 446 334 396 384 C 340 440 238 486 160 440 C 112 412 116 356 110 300 Z"/></defs>
-          <use href="#track" class="track-curb-base"/>
-          <use href="#track" class="track-curb"/>
-          <use href="#track" class="track-road"/>
-          <use href="#track" class="track-line"/>
-          <g id="startline"></g>
-          <path id="trail" class="trail"/>
-          <g id="gates"></g>
-          <g id="marker" class="car" aria-hidden="true">
-            <rect class="car-dark" x="-25" y="-13" width="6" height="26" rx="1.5"/>
-            <rect class="car-dark" x="-18" y="-15" width="11" height="6" rx="2"/>
-            <rect class="car-dark" x="-18" y="9" width="11" height="6" rx="2"/>
-            <rect class="car-dark" x="8" y="-14" width="9" height="5" rx="2"/>
-            <rect class="car-dark" x="8" y="9" width="9" height="5" rx="2"/>
-            <path class="car-body" d="M-20 -7 C -20 -10 -15 -10 -10 -9 L 12 -5 C 20 -4 25 -2 25 0 C 25 2 20 4 12 5 L -10 9 C -15 10 -20 10 -20 7 Z"/>
-            <rect class="car-stripe" x="-19" y="-1.6" width="42" height="3.2" rx="1"/>
-            <rect class="car-dark" x="20" y="-12" width="4" height="24" rx="1.5"/>
-            <ellipse class="car-dark" cx="-3" cy="0" rx="6.5" ry="4.5"/>
-            <circle class="car-helmet" cx="-3" cy="0" r="2.8"/>
-          </g>
-        </svg>
-        <figcaption id="route-hint" class="route-hint"><span class="route-status" aria-live="polite">Drag the car along the road, or click the track and drive with the arrow keys.</span></figcaption>
-      </figure>
-    </section>
-
-    <section class="board container" aria-label="Results at a glance">
-      <ul class="board-grid" data-sort>
-        <li class="tile tone-2" data-topics="bio"><span class="tile-big">1st</span> <span class="tile-note">Bioengineering, Waterloo Engineering Competition 2026</span></li>
-        <li class="tile tone-3" data-topics="bio sw"><span class="tile-big num">83%</span> <span class="tile-note">atrazine removed over 200 simulated seasons, up from 67%</span></li>
-        <li class="tile tone-5" data-topics="bio sw"><span class="tile-big num">0/68</span> <span class="tile-note">smooth fists wrongly flagged in the hand checker’s pilot</span></li>
-        <li class="tile tone-4" data-topics="sw"><span class="tile-big num">20 s</span> <span class="tile-note">for my AI check to flag a server failing 30% of requests, with 0 false alarms</span></li>
-      </ul>
-    </section>
-
-    <section id="projects" class="section container tone-1" aria-labelledby="projects-title">
-      <div class="section-head">
-        <span class="cp" aria-hidden="true">01</span>
-        <h2 id="projects-title">Projects, each with its test result</h2>
-      </div>
-
-      <div class="works" data-sort>
-      <article class="work tone-3" data-topics="bio sw">
-        <figure class="work-media work-shot work-loop">
-          <video src="images/nephron-twin.mp4" poster="images/nephron-twin.jpg" width="960" height="540" muted loop playsinline preload="none"></video>
-          <button type="button" class="loop-toggle" hidden>Play the loop</button>
-          <figcaption class="visually-hidden">One simulated year of the NEPHRON unit: sensors in the inlet box, woodchip trench, carbon box and outlet report to the digital twin, which tells the farmer when to hold water and when to swap carbon cartridges</figcaption>
-        </figure>
-        <div class="work-text">
-          <h3>NEPHRON</h3>
-          <p class="work-tag">1st place at WEC 2026, team of 2</p>
-          <ul class="topics"><li class="topic-bio">Bio &amp; medical</li><li class="topic-sw">Software &amp; data</li></ul>
-          <dl class="facts">
-            <div><dt>Problem</dt><dd>Atrazine from a farm drain reaches a Quebec drinking-water river.</dd></div>
-            <div><dt>My part</dt><dd>The Python digital twin and its Monte Carlo model of storms.</dd></div>
-            <div><dt>Result</dt><dd>Sensor-led control raised removal from 67% to 83% over 200 simulated seasons.</dd></div>
-          </dl>
-          <div class="meters" role="img" aria-label="Atrazine removed at one unit: 67% on a fixed calendar, 83% with the digital twin. Design target 95%.">
-            <div class="meter"><span class="meter-label">Fixed calendar</span><span class="meter-track"><span class="meter-fill is-quiet" data-v="67"></span><span class="meter-target" data-v="95"></span></span><span class="meter-val num">67%</span></div>
-            <div class="meter"><span class="meter-label">Digital twin</span><span class="meter-track"><span class="meter-fill" data-v="83"></span><span class="meter-target" data-v="95"></span></span><span class="meter-val num">83%</span></div>
-            <p class="meter-key"><span class="meter-key-tick" aria-hidden="true"></span>95% design target, not reached yet</p>
+      <article class="sheet record" id="rec-hands" aria-labelledby="t-hands">
+        <header class="record-head">
+          <p class="record-no num">02</p>
+          <h3 id="t-hands">Camera hand-symptom checker</h3>
+          <p class="record-meta">Solo project, pilot with 3 people, October 2026 to now</p>
+        </header>
+        <div class="record-body">
+          <div class="record-text">
+            <p class="record-what">A browser app that checks Raynaud’s, trigger finger and carpal tunnel against published criteria. I wrote the pass and fail rules before collecting any data, and report the failures as clearly as the passes.</p>
+            <p class="tally"><span class="tally-n m">0 of 68</span> smooth fists falsely flagged. Trigger-finger pilot: 2 pass, 3 fail, 1 not yet.</p>
+            <p class="stack">JavaScript, MediaPipe, Chart.js, Python, Gemini API</p>
+            <p class="links"><a href="https://finger-color.vercel.app">Try it live</a><a href="https://github.com/Samuel0720-source/finger-color">Code on GitHub</a><a href="reports/Camera_Hand_Symptom_Checker_Pilot_Validation_Report_2026.pdf">Pilot report (PDF)</a></p>
           </div>
-          <p class="stack">Python, NumPy, Matplotlib</p>
-          <p class="work-links"><a class="text-link" href="https://github.com/Samuel0720-source/Nephron">Code on GitHub</a><a class="text-link" href="NEPHRON_WEC_2026_Report.pdf">Competition report (PDF)</a></p>
+          <div class="record-media shot">
+            <img src="images/screens/finger-color.jpg" alt="The hand-symptom checker’s start screen, with Raynaud’s, trigger finger and carpal tunnel checks" width="1440" height="900" loading="lazy">
+          </div>
         </div>
       </article>
 
-      <article class="work work-flip tone-5" data-topics="bio sw">
-        <div class="work-media work-shot" data-slot="finger-color" data-alt="The hand-symptom checker's start screen">
-          <img src="images/screens/finger-color.jpg" alt="The hand-symptom checker’s start screen, with Raynaud’s, trigger finger and carpal tunnel checks" width="1440" height="900" loading="lazy">
-        </div>
-        <div class="work-text">
-          <h3>Camera hand-symptom checker</h3>
-          <p class="work-tag">Solo project, piloted with 3 people</p>
-          <ul class="topics"><li class="topic-bio">Bio &amp; medical</li><li class="topic-sw">Software &amp; data</li></ul>
-          <dl class="facts">
-            <div><dt>Problem</dt><dd>Three hand conditions are hard to describe in a short appointment.</dd></div>
-            <div><dt>My part</dt><dd>A camera app with guided self-tests. I wrote the pass/fail rules before collecting data.</dd></div>
-            <div><dt>Result</dt><dd>0 of 68 smooth fists falsely flagged. Angle limits missed the ±15° target by 0.8°.</dd></div>
-          </dl>
-          <p class="stack">JavaScript, MediaPipe, Chart.js, Python, Gemini API</p>
-          <p class="work-links"><a class="text-link" href="https://finger-color.vercel.app">Try it live</a><a class="text-link" href="https://github.com/Samuel0720-source/finger-color">Code on GitHub</a><a class="text-link" href="reports/Camera_Hand_Symptom_Checker_Pilot_Validation_Report_2026.pdf">Pilot report (PDF)</a></p>
-        </div>
-      </article>
-
-      <article class="work tone-4" data-topics="bio mech sw">
-        <div class="work-media work-shot" data-slot="gripcheck" data-alt="GripCheck's home screen">
-          <img src="images/screens/gripcheck.jpg" alt="GripCheck’s home screen with the 3D model of the printed v4.2 Jamar-style dynamometer" width="1440" height="900" loading="lazy">
-        </div>
-        <div class="work-text">
-          <h3>GripCheck</h3>
-          <p class="work-tag">Team project, calibration in progress</p>
-          <ul class="topics"><li class="topic-bio">Bio &amp; medical</li><li class="topic-mech">Hardware</li><li class="topic-sw">Software &amp; data</li></ul>
-          <dl class="facts">
-            <div><dt>Problem</dt><dd>A grip test usually reports one peak number, not the force curve.</dd></div>
-            <div><dt>My part</dt><dd>Test software: 5 force-time metrics against published norms, and a bad-trial check.</dd></div>
-            <div><dt>Result</dt><dd>The bad-trial check scored 99% against 92% for hand-tuned rules, on 2,000 simulated curves.</dd></div>
-          </dl>
-          <p class="stack">Python, Flask, Arduino, scikit-learn, SciPy</p>
-          <p class="work-links"><a class="text-link" href="https://gripcheck.vercel.app">Try it live</a><a class="text-link" href="https://github.com/nxtkim-1/hand-dynamometer">Team repo on GitHub</a></p>
+      <article class="sheet record" id="rec-grip" aria-labelledby="t-grip">
+        <header class="record-head">
+          <p class="record-no num">03</p>
+          <h3 id="t-grip">GripCheck</h3>
+          <p class="record-meta">Team project, September 2026 to now</p>
+        </header>
+        <div class="record-body">
+          <div class="record-text">
+            <p class="record-what">A low-cost 3D-printed grip dynamometer. My part is the test software: 5 force-time metrics against published norms, and a check that catches bad trials.</p>
+            <p class="tally"><span class="tally-n m">99% vs 92%</span> for the bad-trial check against hand-tuned rules, on simulated curves. Readings stay datasheet-scaled until calibration is done.</p>
+            <p class="stack">Python, Flask, Arduino, scikit-learn, SciPy</p>
+            <p class="links"><a href="https://gripcheck.vercel.app">Try it live</a><a href="https://github.com/nxtkim-1/hand-dynamometer">Team repo on GitHub</a></p>
+          </div>
+          <div class="record-media shot">
+            <img src="images/screens/gripcheck.jpg" alt="GripCheck’s home screen with the 3D model of the printed v4.2 Jamar-style dynamometer" width="1440" height="900" loading="lazy">
+          </div>
         </div>
       </article>
 
-      <article class="work work-flip tone-1" data-topics="sw">
-        <div class="work-media work-figure">
-          <p class="figure-big num">6.6% <span role="img" aria-label="to">→</span> 0%</p>
-          <p class="figure-note">Failed requests when a server was killed, without and with health checks. Back to full health in 15.0 s.</p>
-        </div>
-        <div class="work-text">
-          <h3>ResiliGuard</h3>
-          <p class="work-tag">Team of 3</p>
-          <ul class="topics"><li class="topic-sw">Software &amp; data</li></ul>
-          <dl class="facts">
-            <div><dt>Problem</dt><dd>A server can fail 30% of requests and still pass its health check.</dd></div>
-            <div><dt>My part</dt><dd>Monitoring, 4 load-test scenarios and an AI early-warning model.</dd></div>
-            <div><dt>Result</dt><dd>The AI flagged that server in 20 s with 0 false alarms; the health check never did.</dd></div>
-          </dl>
-          <p class="stack">Python, Prometheus, Grafana, Locust, Docker, scikit-learn</p>
-          <p class="work-links"><a class="text-link" href="https://github.com/AndrewOh077/Software-project">Team repo on GitHub</a></p>
+      <article class="sheet record" id="rec-resili" aria-labelledby="t-resili">
+        <header class="record-head">
+          <p class="record-no num">04</p>
+          <h3 id="t-resili">ResiliGuard</h3>
+          <p class="record-meta">Team of 3, November 2026 to now</p>
+        </header>
+        <div class="record-body">
+          <div class="record-text">
+            <p class="record-what">A self-healing server platform. My part: monitoring, 4 load-test scenarios and an AI early-warning model. It flagged a server failing 30% of requests in 20 s, with 0 false alarms; the standard health check never did.</p>
+            <p class="stack">Python, Prometheus, Grafana, Locust, Docker, scikit-learn</p>
+            <p class="links"><a href="https://github.com/AndrewOh077/Software-project">Team repo on GitHub</a></p>
+          </div>
+          <div class="record-media figure">
+            <p class="figure-big m">6.6% <span role="img" aria-label="to">→</span> 0%</p>
+            <p class="figure-note">Failed requests when a server was killed, without and with health checks. Back to full health in 15.0 s.</p>
+          </div>
         </div>
       </article>
 
-      <article class="work tone-2" data-topics="sw">
-        <div class="work-media work-shot" data-slot="duri" data-alt="Duri's home screen">
-          <img src="images/screens/duri-chrome-starter.jpg" alt="Duri’s home screen, an illustrated post office for couples" width="1440" height="600" loading="lazy">
-        </div>
-        <div class="work-text">
-          <h3>Duri</h3>
-          <p class="work-tag">Personal project</p>
-          <ul class="topics"><li class="topic-sw">Software &amp; data</li></ul>
-          <dl class="facts">
-            <div><dt>Problem</dt><dd>A couples’ game is only fun if you can’t see your partner’s answer early.</dd></div>
-            <div><dt>My part</dt><dd>Website, PWA and Chrome extension from one Next.js codebase, with eight real-time games.</dd></div>
-            <div><dt>Result</dt><dd>Game rules run inside the database, so hidden cards never reach the other browser.</dd></div>
-          </dl>
-          <p class="stack">Next.js, TypeScript, Supabase, WebRTC, Playwright</p>
-          <p class="work-links"><a class="text-link" href="https://duri-chrome-starter.vercel.app">Visit Duri</a><a class="text-link" href="https://github.com/Samuel0720-source/duri-chrome-starter">Code on GitHub</a></p>
+      <article class="sheet record" id="rec-duri" aria-labelledby="t-duri">
+        <header class="record-head">
+          <p class="record-no num">05</p>
+          <h3 id="t-duri">Duri</h3>
+          <p class="record-meta">Personal project, 2026</p>
+        </header>
+        <div class="record-body">
+          <div class="record-text">
+            <p class="record-what">A shared room for couples, as a website, PWA and Chrome extension from one Next.js codebase, with eight real-time games. Game rules run inside the database, so hidden cards never reach the other browser.</p>
+            <p class="stack">Next.js, TypeScript, Supabase, WebRTC, Playwright</p>
+            <p class="links"><a href="https://duri-chrome-starter.vercel.app">Visit Duri</a><a href="https://github.com/Samuel0720-source/duri-chrome-starter">Code on GitHub</a></p>
+          </div>
+          <div class="record-media shot">
+            <img src="images/screens/duri-chrome-starter.jpg" alt="Duri’s home screen, an illustrated post office for couples" width="1440" height="600" loading="lazy">
+          </div>
         </div>
       </article>
+
+      <div class="bench">
+        <h3 class="bench-title">Also on the bench</h3>
+        <ul class="bench-list">
+          <li><a href="https://github.com/Samuel0720-source/Spine-ai">Lumbar MRI disc herniation classifier</a><span>In progress, PyTorch</span></li>
+          <li><span class="bench-name">Adaptive ski system for children with LCPD</span><span>BME 161 team design project, not public</span></li>
+        </ul>
       </div>
-      <h3 class="index-title">Also on the route</h3>
-      <ul class="index" data-sort>
-        <li data-topics="bio sw">
-          <a href="https://github.com/Samuel0720-source/Spine-ai">Lumbar MRI disc herniation classifier</a>
-          <span class="index-meta">In progress, PyTorch</span>
-        </li>
-        <li data-topics="mech bio">
-          <span class="index-name">Adaptive ski system for children with LCPD</span>
-          <span class="index-meta">BME 161 team design project, not public</span>
-        </li>
-      </ul>
     </section>
 
-    <section id="awards" class="section container tone-2" aria-labelledby="awards-title">
-      <div class="section-head">
-        <span class="cp" aria-hidden="true">02</span>
-        <h2 id="awards-title">Awards</h2>
-      </div>
-      <div class="award-lead">
-        <p class="award-big">1st</p>
-        <p class="award-what">Bioengineering, Waterloo Engineering Competition, November 2026. NEPHRON now goes on to the Ontario Engineering Competition.</p>
-      </div>
+    <section id="awards" class="block container" aria-labelledby="awards-title">
+      <h2 id="awards-title" class="section-title">Awards</h2>
       <ul class="rows">
+        <li><span class="row-main">1st in Bioengineering, Waterloo Engineering Competition</span><span class="row-side">November 2026. NEPHRON goes on to the Ontario Engineering Competition.</span></li>
         <li><span class="row-main">President’s Scholarship of Distinction</span><span class="row-side">University of Waterloo, admission average of 95% or higher</span></li>
         <li><span class="row-main">Church Scholarship</span><span class="row-side">Vancouver Korean Presbyterian Church, 2025 to 2026</span></li>
         <li><span class="row-main">Principal’s Award</span><span class="row-side">Point Grey Secondary School, Vancouver</span></li>
@@ -248,58 +209,43 @@
       </ul>
     </section>
 
-    <section id="experience" class="section container tone-3" aria-labelledby="experience-title">
-      <div class="section-head">
-        <span class="cp" aria-hidden="true">03</span>
-        <h2 id="experience-title">Experience and leadership</h2>
-      </div>
+    <section id="experience" class="block container" aria-labelledby="experience-title">
+      <h2 id="experience-title" class="section-title">Experience and leadership</h2>
       <ul class="rows rows-time">
-        <li><span class="row-date num">2026</span><span class="row-main">Biotron Design Team, mechanical sub-team <span class="row-note">(team work, not public)</span></span><span class="chip tone-4">Design team</span></li>
-        <li><span class="row-date num">2025 to 2026</span><span class="row-main">Retail and customer service associate, Sandy’s Farm Market, Vancouver</span><span class="chip tone-1">Work</span></li>
-        <li><span class="row-date num">2025 to 2026</span><span class="row-main">Hounds Mentoring leader in high school, mentoring Grade 8 students</span><span class="chip tone-5">Leadership</span></li>
-        <li><span class="row-date num">2024 to 2026</span><span class="row-main">Korean Club leader in high school, a club averaging 70+ attendees</span><span class="chip tone-5">Leadership</span></li>
-        <li><span class="row-date num">2023 to 2025</span><span class="row-main">Volunteer, Shoppers Drug Mart, British Columbia</span><span class="chip tone-3">Volunteer</span></li>
+        <li><span class="row-date num">2026</span><span class="row-main">Biotron Design Team, mechanical sub-team</span><span class="row-side">Team work, not public</span></li>
+        <li><span class="row-date num">2025 to 2026</span><span class="row-main">Retail and customer service associate, Sandy’s Farm Market, Vancouver</span><span class="row-side">Work</span></li>
+        <li><span class="row-date num">2025 to 2026</span><span class="row-main">Hounds Mentoring leader in high school, mentoring Grade 8 students</span><span class="row-side">Leadership</span></li>
+        <li><span class="row-date num">2024 to 2026</span><span class="row-main">Korean Club leader in high school, a club averaging 70+ attendees</span><span class="row-side">Leadership</span></li>
+        <li><span class="row-date num">2023 to 2025</span><span class="row-main">Volunteer, Shoppers Drug Mart, British Columbia</span><span class="row-side">Volunteer</span></li>
       </ul>
     </section>
 
-    <section id="toolkit" class="section container tone-4" aria-labelledby="toolkit-title">
-      <div class="section-head">
-        <span class="cp" aria-hidden="true">04</span>
-        <h2 id="toolkit-title">Toolkit</h2>
-      </div>
-      <div class="tools" data-sort>
-        <div class="tool-group tone-3" data-topics="bio sw"><h3>Data and ML</h3><ul class="chips"><li>NumPy</li><li>SciPy</li><li>scikit-learn</li><li>PyTorch</li><li>MediaPipe</li></ul></div>
-        <div class="tool-group tone-2" data-topics="mech bio"><h3>Hardware and CAD</h3><ul class="chips"><li>Load cells</li><li>IMUs</li><li>3D printing</li><li>Fusion 360</li><li>KiCad</li></ul></div>
-        <div class="tool-group tone-1" data-topics="sw bio mech"><h3>Code</h3><ul class="chips"><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>SQL</li><li>C++</li></ul></div>
-        <div class="tool-group tone-4" data-topics="sw"><h3>Web</h3><ul class="chips"><li>React</li><li>Next.js</li><li>Flask</li><li>Supabase</li><li>WebRTC</li></ul></div>
-        <div class="tool-group tone-5" data-topics="sw"><h3>Testing and ops</h3><ul class="chips"><li>Docker</li><li>Prometheus</li><li>Grafana</li><li>pytest</li><li>Playwright</li></ul></div>
-        <div class="tool-group tone-1"><h3>Languages</h3><ul class="chips"><li>English</li><li>Korean</li></ul></div>
-      </div>
+    <section id="toolkit" class="block container" aria-labelledby="toolkit-title">
+      <h2 id="toolkit-title" class="section-title">Toolkit</h2>
+      <dl class="tools">
+        <div><dt>Data and ML</dt><dd>NumPy, SciPy, scikit-learn, PyTorch, MediaPipe</dd></div>
+        <div><dt>Hardware and CAD</dt><dd>Load cells, IMUs, 3D printing, Fusion 360, KiCad</dd></div>
+        <div><dt>Code</dt><dd>Python, TypeScript, JavaScript, SQL, C++</dd></div>
+        <div><dt>Web</dt><dd>React, Next.js, Flask, Supabase, WebRTC</dd></div>
+        <div><dt>Testing and ops</dt><dd>Docker, Prometheus, Grafana, pytest, Playwright</dd></div>
+        <div><dt>Languages</dt><dd>English, Korean</dd></div>
+      </dl>
     </section>
 
-    <section id="links" class="section container tone-5" aria-labelledby="links-title">
-      <div class="section-head">
-        <span class="cp" aria-hidden="true">05</span>
-        <h2 id="links-title">GitHub and contact</h2>
-      </div>
-
-      <a class="gh-card" href="https://github.com/Samuel0720-source">
-        <svg class="gh-card-icon" aria-hidden="true"><use href="#gh-mark"/></svg>
-        <span class="gh-card-url">github.com/<wbr>Samuel0720-source</span>
-        <span class="gh-card-cta">Open profile</span>
-      </a>
-
-      <ul class="link-grid">
-        <li><a href="mailto:samuelkoo0720@gmail.com"><span class="link-name">Email</span><span class="link-url">samuelkoo0720@gmail.com</span></a></li>
-        <li><a href="https://www.linkedin.com/in/samuel-koo-9a80b2435/"><span class="link-name">LinkedIn</span><span class="link-url">linkedin.com/in/<wbr>samuel-koo-9a80b2435</span></a></li>
-        <li><a href="Samuel_Koo_Resume.pdf"><span class="link-name">Résumé</span><span class="link-url">PDF</span></a></li>
+    <section id="links" class="contact container" aria-labelledby="links-title">
+      <h2 id="links-title" class="section-title">Contact</h2>
+      <a class="contact-mail" href="mailto:samuelkoo0720@gmail.com">samuelkoo0720@gmail.com</a>
+      <ul class="contact-links">
+        <li><a href="https://github.com/Samuel0720-source">GitHub, Samuel0720-source</a></li>
+        <li><a href="https://www.linkedin.com/in/samuel-koo-9a80b2435/">LinkedIn</a></li>
+        <li><a href="Samuel_Koo_Resume.pdf">Résumé (PDF)</a></li>
       </ul>
     </section>
   </main>
 
   <footer class="footer container">
     <p>Samuel Koo, Waterloo, Ontario, 2026</p>
-    <a href="#top">Back to the start line</a>
+    <a href="#top">Back to the top</a>
   </footer>
 
   <script src="main.js" defer></script>
