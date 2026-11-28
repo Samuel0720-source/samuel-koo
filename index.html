@@ -10,7 +10,7 @@
   <meta property="og:image" content="https://samuel-koo.vercel.app/images/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Samuel Koo, Biomedical Engineering at Waterloo: 1st at WEC 2026 Bioengineering, atrazine removal raised from 67% to 83%, 0 of 68 false alarms in a hand-checker pilot">
+  <meta property="og:image:alt" content="Samuel Koo, Biomedical Engineering at Waterloo: 1st at WEC 2026 Bioengineering, atrazine removal cut 95% in a 2,000-season model, 0 of 68 false alarms in a hand-checker pilot">
   <meta property="og:url" content="https://samuel-koo.vercel.app/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -108,7 +108,7 @@
     <section class="board container" aria-label="Results at a glance">
       <ul class="board-grid" data-sort>
         <li class="tile tone-2" data-topics="bio"><span class="tile-big">1st</span> <span class="tile-note">Bioengineering, Waterloo Engineering Competition 2026</span></li>
-        <li class="tile tone-3" data-topics="bio sw"><span class="tile-big num">83%</span> <span class="tile-note">atrazine removed over 200 simulated seasons, up from 67%</span></li>
+        <li class="tile tone-3" data-topics="bio sw"><span class="tile-big num">95%</span> <span class="tile-note">less atrazine in the river over 2,000 simulated seasons, up from 54%</span></li>
         <li class="tile tone-5" data-topics="bio sw"><span class="tile-big num">0/68</span> <span class="tile-note">smooth fists wrongly flagged in the hand checker’s pilot</span></li>
         <li class="tile tone-4" data-topics="sw"><span class="tile-big num">20 s</span> <span class="tile-note">for my AI check to flag a server failing 30% of requests, with 0 false alarms</span></li>
       </ul>
@@ -125,7 +125,7 @@
         <figure class="work-media work-shot work-loop">
           <video src="images/nephron-twin.mp4" poster="images/nephron-twin.jpg" width="960" height="540" muted loop playsinline preload="none"></video>
           <button type="button" class="loop-toggle" hidden>Play the loop</button>
-          <figcaption class="visually-hidden">One simulated year of the NEPHRON unit: sensors in the inlet box, woodchip trench, carbon box and outlet report to the digital twin, which tells the farmer when to hold water and when to swap carbon cartridges</figcaption>
+          <figcaption class="visually-hidden">One simulated year of the NEPHRON unit: sensors in the inlet box, woodchip trench, carbon box and outlet report to the digital twin, which tells the farmer when to hold water and when to swap carbon cartridges; a surface inlet sends field runoff into the same filter</figcaption>
         </figure>
         <div class="work-text">
           <h3>NEPHRON</h3>
@@ -134,12 +134,13 @@
           <dl class="facts">
             <div><dt>Problem</dt><dd>Atrazine from a farm drain reaches a Quebec drinking-water river.</dd></div>
             <div><dt>My part</dt><dd>The Python digital twin and its Monte Carlo model of storms.</dd></div>
-            <div><dt>Result</dt><dd>Sensor-led control raised removal from 67% to 83% over 200 simulated seasons.</dd></div>
+            <div><dt>Result</dt><dd>At WEC, sensor-led control lifted the river drop from 43% to 54%. After the competition I added a surface inlet, biochar and a larger carbon box: 95% over 2,000 simulated seasons.</dd></div>
           </dl>
-          <div class="meters" role="img" aria-label="Atrazine removed at one unit: 67% on a fixed calendar, 83% with the digital twin. Design target 95%.">
-            <div class="meter"><span class="meter-label">Fixed calendar</span><span class="meter-track"><span class="meter-fill is-quiet" data-v="67"></span><span class="meter-target" data-v="95"></span></span><span class="meter-val num">67%</span></div>
-            <div class="meter"><span class="meter-label">Digital twin</span><span class="meter-track"><span class="meter-fill" data-v="83"></span><span class="meter-target" data-v="95"></span></span><span class="meter-val num">83%</span></div>
-            <p class="meter-key"><span class="meter-key-tick" aria-hidden="true"></span>95% design target, not reached yet</p>
+          <div class="meters" role="img" aria-label="Drop in river atrazine: 43% on a fixed calendar, 54% with the digital twin, 95% with NEPHRON 2.5. Case goal 90%.">
+            <div class="meter"><span class="meter-label">Fixed calendar</span><span class="meter-track"><span class="meter-fill is-quiet" data-v="43"></span><span class="meter-target" data-v="90"></span></span><span class="meter-val num">43%</span></div>
+            <div class="meter"><span class="meter-label">Digital twin</span><span class="meter-track"><span class="meter-fill is-quiet" data-v="54"></span><span class="meter-target" data-v="90"></span></span><span class="meter-val num">54%</span></div>
+            <div class="meter"><span class="meter-label">NEPHRON 2.5</span><span class="meter-track"><span class="meter-fill" data-v="95"></span><span class="meter-target" data-v="90"></span></span><span class="meter-val num">95%</span></div>
+            <p class="meter-key"><span class="meter-key-tick" aria-hidden="true"></span>90% case goal, met in 97% of simulated seasons</p>
           </div>
           <p class="stack">Python, NumPy, Matplotlib</p>
           <p class="work-links"><a class="text-link" href="https://github.com/Samuel0720-source/Nephron">Code on GitHub</a><a class="text-link" href="NEPHRON_WEC_2026_Report.pdf">Competition report (PDF)</a></p>

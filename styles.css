@@ -197,7 +197,7 @@
 .meter { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 3rem; align-items: center; gap: var(--space-sm); font-size: var(--text-sm); }
 .meter-track { position: relative; height: 12px; border-radius: 4px; background: var(--color-paper-3); }
 .meter-fill { position: absolute; inset: 0 auto 0 0; width: var(--v); border-radius: 4px; background: var(--color-ink); }
-[data-v="67"] { --v: 67%; } [data-v="83"] { --v: 83%; } [data-v="95"] { --v: 95%; }
+[data-v="43"] { --v: 43%; } [data-v="54"] { --v: 54%; } [data-v="90"] { --v: 90%; } [data-v="95"] { --v: 95%; }
 .meter-fill.is-quiet { background: var(--color-muted); }
 .meter-target, .meter-key-tick { position: absolute; top: -4px; bottom: -4px; left: var(--v); width: 2px; background: var(--color-ink); }
 .meter-val { text-align: right; font-weight: 500; }
